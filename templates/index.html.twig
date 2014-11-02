@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Les recettes de cocktails</title>
+    <meta charset="UTF8" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+
+<body>
+    {% block block_menu %}
+    
+    <header class="container">
+        {% include 'menu.html.twig' %}
+    </header>
+    
+    {% endblock %}
+    
+    <div class="container">
+        {% block block_principal %}
+        
+        <h1>Un monde de cocktails</h1>
+        
+        {% endblock %}
+    </div>
+    
+</body>
+</html>

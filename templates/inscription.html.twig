@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Inscription</title>
+    <meta charset="UTF8" />
+</head>
+
+<body>
+    <header>
+        <?php include_once("menu.php"); ?>
+    </header>
+    
+    <h2> Inscription </h2>
+    
+    <table method="post">
+        <div>
+            <label> Pseudo * : </label>
+            <input id="pseudo" name="pseudo" type="text"/>
+        </div>
+        
+        <div>
+            <label> Mot de passe * : </label>
+            <input name="motdepasse" type="password" />
+        </div>
+        <div>
+            <label> Nom : </label>
+            <input name="nom" type="text" />
+        </div>
+        <div>
+            <label> Prénom : </label>
+            <input name="prenom" type="text" />
+        </div>
+        <div>
+            <label> Adresse email : </label>
+            <input name="email" type="email" />
+        </div>
+        <div>
+            <label> Date de naissance : </label>
+            <input name="naissance" type="text" />
+        </div>
+        <div>
+            <label> Adresse postale : </label>
+            <input name="postale" type="text" />
+        </div>
+        <div>
+            <label> Téléphone : </label>
+            <input name="telephone" type="text" />
+        </div>
+        <br/>
+        <div>
+            <button type="submit" name="submit"> Envoyer </button>
+        </div>
+    </table>
+
+</body>
+</html>

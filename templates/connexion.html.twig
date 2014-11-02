@@ -1,0 +1,29 @@
+    {% extends 'index.html.twig' %}
+
+
+    {% block block_principal %}
+    
+    <h2> Connexion </h2>
+    
+    <table method="post">
+        <div>
+            <label> Pseudo * : </label>
+            <input id="pseudo" name="pseudo" type="text"/>
+        </div>
+        
+        <div>
+            <label> Mot de passe * : </label>
+            <input name="motdepasse" type="password" />
+        </div>
+      
+        <br/>
+        <div>
+            <button type="submit" name="submit"> Envoyer </button>
+        </div>
+    </table>
+    
+    <div>
+        <a href="inscription.php"> Pas encore inscrit ? </a>
+    </div>
+
+    {% endblock %}
