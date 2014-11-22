@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <title>Inscription</title>
-    <meta charset="UTF8" />
-</head>
+    {% extends 'index.html.twig' %}
 
-<body>
-    <header>
-        <?php include_once("menu.php"); ?>
-    </header>
+
+    {% block block_principal %}
     
     <h2> Inscription </h2>
     
@@ -36,7 +29,7 @@
         </div>
         <div>
             <label> Date de naissance : </label>
-            <input name="naissance" type="text" />
+            <input name="naissance" type="date" />
         </div>
         <div>
             <label> Adresse postale : </label>
@@ -52,5 +45,5 @@
         </div>
     </table>
 
-</body>
-</html>
+    {% endblock %}
+    

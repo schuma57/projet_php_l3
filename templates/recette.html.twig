@@ -1,0 +1,43 @@
+{% extends 'index.html.twig' %}
+
+
+{% block block_principal %}
+    {% set item = session.recettes[id_recette] %}
+
+    <h2> Recette : {{ item.titre }} </h2>
+
+    <section class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3> Ingrédients </h3>
+                    <ul>
+                        <li>
+                            {{ item.ingredients|replace({'|':'</li><li>'})|raw }}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-12">
+                    <h3> Préparation </h3>
+                    {{ item.preparation }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4> Menu </h4>
+                    <a href="">
+                        <span class="glyphicon glyphicon-star-empty"></span> Ajouter aux favoris </a>
+                </div>
+                <div class="col-xs-12">
+
+                    <img class="img-responsive" src="Photos/{{ item.titre|replace({' ': '_'}) }}.jpg" alt="image du cocktail">
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

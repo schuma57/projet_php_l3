@@ -1,0 +1,46 @@
+{% extends 'index.html.twig' %}
+
+{% block block_principal %}
+
+    <section class="row">
+        <div class="col-md-12 col-xs-12">
+            <h4> Filter : </h4>
+
+            <form action="#">
+                <div>
+                    <select name="aliment">
+                    {% for aliment in session.hierarchie.Aliment['sous-categorie'] %}
+                        <option value="{{ aliment }}">{{ aliment }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+    <h2> Les cocktails </h2>
+
+    <section class="row">
+    {% for key, c in session.recettes %}
+
+    <div class="cocktail-out col-xs-4 col-sm-3 col-md-2">
+        <a href="recette.php?id={{ key }}">
+            <div class="cocktail-in">
+                <div class="row">
+
+                <div class="col-xs-12">
+                    <!-- <img src="img/cocktail_icone.jpg" alt="image" /> -->
+                    {{ c.titre }}
+                </div>
+                <!-- <div class="col-xs-12">
+                    {#{{ c.titre }}#}
+                </div> -->
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    </section>
+
+{% endblock %}

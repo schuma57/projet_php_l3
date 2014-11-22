@@ -5,13 +5,16 @@
     <meta charset="UTF8" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
     {% block block_menu %}
     
     <header class="container">
-        {% include 'menu.html.twig' %}
+        <div class="row">
+            {{ include('menu.html.twig') }}
+        </div>
     </header>
     
     {% endblock %}
@@ -20,9 +23,20 @@
         {% block block_principal %}
         
         <h1>Un monde de cocktails</h1>
-        
+
+            <section class="container-fluid" id="section_logo">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                        <img src="img/cocktail_fond.jpg" id="logo"
+                             class="img-responsive img-circle" alt="image cocktails" />
+                    </div>
+                </div>
+            </section>
+
         {% endblock %}
     </div>
     
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 </html>

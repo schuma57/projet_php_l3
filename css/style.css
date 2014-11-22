@@ -1,0 +1,45 @@
+/*----------------- Feuille de style du projet PHP ---------------------
+-----------------------------------------------------------------------*/
+
+html
+{
+    position: relative;
+}
+
+.cocktail-out
+{
+    margin-bottom: 1em;
+}
+
+.cocktail-in
+{
+    height: 15em;
+    border: solid black 1px;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.2em;
+    color: red;
+}
+
+.cocktail-in::after
+{
+    content: "";
+    background: url(../img/cocktail_icone.jpg);
+    background-size: cover;
+    opacity: 0.26;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#inner_presentation
+{
+}
+
+.cocktail-in img
+{
+    width: 100%;
+}
