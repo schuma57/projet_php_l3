@@ -2,45 +2,140 @@
 
 {% block block_principal %}
 
-    <section class="row">
-        <div class="col-md-12 col-xs-12">
-            <h4> Filter : </h4>
+<section class="row">
 
-            <form action="#">
-                <div>
-                    <select name="aliment">
-                    {% for aliment in session.hierarchie.Aliment['sous-categorie'] %}
-                        <option value="{{ aliment }}">{{ aliment }}</option>
-                    {% endfor %}
+    <div class="col-xs-12 col-md-12">
+        <h2 class="text-center"> Les cocktails </h2>
+    </div>
+
+    <div class="col-xs-12 col-md-12">
+        <ul class="breadcrumb">
+            <li><a href="cocktails.php">Tout</a></li>
+            {% if get.niveau1 is defined %}
+                <li>{{ get.niveau1 }}</li>
+            {% endif %}
+            {% if get.niveau2 is defined %}
+                <li>{{ get.niveau2 }}</li>
+            {% endif %}
+            {% if get.niveau3 is defined %}
+                <li>{{ get.niveau3 }}</li>
+            {% endif %}
+            {% if get.niveau4 is defined %}
+                <li>{{ get.niveau4 }}</li>
+            {% endif %}
+            {% if get.niveau5 is defined %}
+                <li>{{ get.niveau5 }}</li>
+            {% endif %}
+            {% if get.niveau6 is defined %}
+                <li>{{ get.niveau6 }}</li>
+            {% endif %}
+            {% if get.niveau7 is defined %}
+                <li>{{ get.niveau7 }}</li>
+            {% endif %}
+            {% if get.niveau8 is defined %}
+                <li>{{ get.niveau8 }}</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div clas="row">
+        <div class="col-md-3 col-xs-12">
+
+            <form method="post" action="#" name="formulaire">
+                <div class="form-group">
+                    <select name="niveau1" class="selectpicker">
+                        {% for un in hierarchie.Aliment['sous-categorie'] %}
+                            <option {% if get.niveau1 == un %} selected {% endif %} value="{{ un }}">{{ un }}</option>
+                        {% endfor %}
                     </select>
+
+                    {% if (get.niveau1 is defined) and (hierarchie[get.niveau1]['sous-categorie'] is defined) %}
+                        <select name="niveau2" class="selectpicker">
+                            {% for deux in hierarchie[get.niveau1]['sous-categorie'] %}
+                                <option {% if get.niveau2 == deux %} selected {% endif %} value="{{ deux }}">{{ deux }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+
+                    {% if (get.niveau2 is defined) and (hierarchie[get.niveau2]['sous-categorie'] is defined) %}
+                        <select name="niveau3" class="selectpicker">
+                            {% for trois in hierarchie[get.niveau2]['sous-categorie'] %}
+                                <option <option {% if get.niveau3 == trois %} selected {% endif %} value="{{ trois }}">{{ trois }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+
+                    {% if (get.niveau3 is defined) and (hierarchie[get.niveau3]['sous-categorie'] is defined) %}
+                        <select name="niveau4" class="selectpicker">
+                            {% for quatre in hierarchie[get.niveau3]['sous-categorie'] %}
+                                <option <option {% if get.niveau4 == quatre %} selected {% endif %} value="{{ quatre }}">{{ quatre }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+
+                    {% if (get.niveau4 is defined) and (hierarchie[get.niveau4]['sous-categorie'] is defined) %}
+                        <select name="niveau5" class="selectpicker">
+                            {% for cinq in hierarchie[get.niveau4]['sous-categorie'] %}
+                                <option <option {% if get.niveau5 == cinq %} selected {% endif %} value="{{ cinq }}">{{ cinq }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+
+                    {% if (get.niveau5 is defined) and (hierarchie[get.niveau5]['sous-categorie'] is defined) %}
+                        <select name="niveau6" class="selectpicker">
+                            {% for six in hierarchie[get.niveau5]['sous-categorie'] %}
+                                <option <option {% if get.niveau6 == six %} selected {% endif %} value="{{ six }}">{{ six }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+
+                    {% if (get.niveau6 is defined) and (hierarchie[get.niveau6]['sous-categorie'] is defined) %}
+                        <select name="niveau7" class="selectpicker">
+                            {% for sept in hierarchie[get.niveau6]['sous-categorie'] %}
+                                <option <option {% if get.niveau7 == sept %} selected {% endif %} value="{{ sept }}">{{ sept }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+
+                    {% if (get.niveau7 is defined) and (hierarchie[get.niveau7]['sous-categorie'] is defined) %}
+                        <select name="niveau8" class="selectpicker">
+                            {% for huit in hierarchie[get.niveau7]['sous-categorie'] %}
+                                <option <option {% if get.niveau8 == huit %} selected {% endif %} value="{{ huit }}">{{ huit }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
                 </div>
+                <input type="submit" name="submit" value="Envoyer" class="btn btn-primary" />
             </form>
 
         </div>
-    </section>
 
-    <h2> Les cocktails </h2>
+        <div class="col-md-9 col-xs-12">
+            <section class="row" id="super">
 
-    <section class="row">
-    {% for key, c in session.recettes %}
+            {% for key, re in recettes %}
+                <div class="cocktail-out col-xs-4 col-sm-3 col-md-3 dedans">
+                    <a href="recette.php?id={{ key }}">
+                        <div class="cocktail-in">
 
-    <div class="cocktail-out col-xs-4 col-sm-3 col-md-2">
-        <a href="recette.php?id={{ key }}">
-            <div class="cocktail-in">
-                <div class="row">
+                            <div class="col-xs-12">
+                                <!-- <img src="img/cocktail_icone.jpg" alt="image" /> -->
+                                {{ re.titre }}
+                            </div>
 
-                <div class="col-xs-12">
-                    <!-- <img src="img/cocktail_icone.jpg" alt="image" /> -->
-                    {{ c.titre }}
+                        </div>
+                    </a>
                 </div>
-                <!-- <div class="col-xs-12">
-                    {#{{ c.titre }}#}
-                </div> -->
-                </div>
-            </div>
-        </a>
+            {% endfor %}
+
+            </section>
+        </div>
     </div>
-    {% endfor %}
-    </section>
+
+    <div class="col-md-12 col-xs-12 text-center paginator btn-group">
+
+    </div>
+</section>
+
 
 {% endblock %}

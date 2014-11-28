@@ -1,0 +1,156 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF8" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <style>
+        body {
+            margin: 40px;
+        }
+        #accordion .glyphicon {
+            margin-right: 10px;
+        }
+        .panel-collapse > .list-group .list-group-item:first-child {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+        .panel-collapse > .list-group .list-group-item {
+            border-width: 1px 0;
+        }
+        .panel-collapse > .list-group {
+            margin-bottom: 0;
+        }
+        .panel-collapse .list-group-item {
+            border-radius: 0;
+        }
+        .panel-collapse .list-group .list-group {
+            margin: 0;
+            margin-top: 10px;
+        }
+        .panel-collapse .list-group-item li.list-group-item {
+            margin: 0 -15px;
+            border-top: 1px solid #ddd;
+            border-bottom: 0;
+            padding-left: 30px;
+        }
+        .panel-collapse .list-group-item li.list-group-item:last-child {
+            padding-bottom: 0;
+        }
+        .panel-collapse div.list-group div.list-group {
+            margin: 0;
+        }
+        .panel-collapse div.list-group .list-group a.list-group-item {
+            border-top: 1px solid #ddd;
+            border-bottom: 0;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    {% set nbLignes = 0 %}
+
+    <section class="container">
+        <h2>Hierarchie des aliments</h2>
+
+    <div class="row">
+        <div class="col-xs-4 col-md-4">
+    <div class="navbar navbar-default" role="navigation">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+
+    {#<ul class="list-group">#}
+        {% for key0, aliment in hierarchie.Aliment['sous-categorie'] %}
+            {#<li>#}
+                <div class="panel-heading" id="parent{{ key0|replace({' ': '_'}) }}">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ key0 }}">
+                        <span class="glyphicon glyphicon-plus"></span></a>
+                    {{ aliment }}
+                </div>
+
+                <div id="collapse{{ key0 }}" class="panel-collapse collapse in">
+                <ul class="list-group">
+                    {% for key1, un in hierarchie[aliment]['sous-categorie'] %}
+                        <li class="list-group-item">
+                            <div id="{{ loop.index }}parent{{ key1|replace({' ': '_'}) }}">
+                            <a data-toggle="collapse" data-parent="#parent{{ key0|replace({' ': '_'}) }}" href="#{{ loop.index }}collapse{{ un|replace({' ': '_'}) }}">
+                                <span class="glyphicon glyphicon-plus"></span> </a>
+                            {{ un }}
+                            </div>
+
+                            <div id="{{ loop.index }}collapse{{ un|replace({' ': '_'}) }}" class="panel-collapse collapse in">
+                            <ul class="list-group">
+                                {% for key2, deux in hierarchie[un]['sous-categorie'] %}
+                                <li class="list-group-item">
+                                    <div id="{{ loop.index }}parent{{ key2|replace({' ': '_'}) }}">
+                                    <a data-toggle="collapse" data-parent="#{{ loop.index }}parent{{ key1|replace({' ': '_'}) }}" href="#{{ loop.index }}collapse{{ deux|replace({' ': '_'}) }}">
+                                        <span class="glyphicon glyphicon-plus"></span> </a>
+                                    {{ deux }}
+                                    </div>
+
+                                    <div id="{{ loop.index }}collapse{{ deux|replace({' ': '_'}) }}" class="panel-collapse collapse in">
+                                    <ul>
+                                        {% for key3, trois in hierarchie[deux]['sous-categorie'] %}
+                                            <li class="list-group-item">
+                                                <div id="{{ loop.index }}parent{{ key3|replace({' ': '_'}) }}">
+                                                    <a data-toggle="collapse" data-parent="#{{ loop.index }}parent{{ key2|replace({' ': '_'}) }}" href="#{{ loop.index }}collapse{{ trois|replace({' ': '_'}) }}">
+                                                        <span class="glyphicon glyphicon-plus"></span> </a>
+                                                {{ trois }}
+                                                </div>
+                                                <div id="{{ loop.index }}collapse{{ trois|replace({' ': '_'}) }}" class="panel-collapse collapse in">
+                                                <ul>
+                                                    {% for key4, quatre in hierarchie[trois]['sous-categorie'] %}
+                                                        <li>
+                                                            {{ quatre }}
+                                                            <ul>
+                                                                {% for key5, cinq in hierarchie[quatre]['sous-categorie'] %}
+                                                                    <li>
+                                                                        {{ cinq }}
+                                                                        <ul>
+                                                                            {% for key6, six in hierarchie[cinq]['sous-categorie'] %}
+                                                                                <li>
+                                                                                    {{ six }}
+                                                                                    <ul>
+                                                                                        {% for key7, sept in hierarchie[six]['sous-categorie'] %}
+                                                                                            <li>
+                                                                                                {% set nbLignes = nbLignes + 1 %}
+                                                                                                {{ sept }}
+                                                                                            </li>
+                                                                                        {% endfor %}
+                                                                                    </ul>
+                                                                                </li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                </div>
+            {#</li>#}
+        {% endfor %}
+    {#</ul>#}
+        </div>
+    </div>
+    </div>
+        </div>
+    </div>
+
+    <h3> nb lignes : {{ nbLignes }} </h3>
+    </section>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
