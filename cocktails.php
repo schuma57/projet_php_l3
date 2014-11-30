@@ -1,5 +1,7 @@
 <?php
     session_start();
+    if( !isset($_SESSION['panier']) )
+        $_SESSION['panier'] = array();
     require_once("Donnees.inc.php");
     //=============================================================//
     require_once 'lib/Twig/Autoloader.php';
@@ -70,7 +72,8 @@
 
 
     echo $twig->render('cocktails.html.twig',
-        array('recettes' => $listeRecettes,
+        array('session' => $_SESSION,
+            'recettes'  => $listeRecettes,
             'hierarchie' => $Hierarchie,
             'get'        => $_POST,
             'nbCocktail' => count($listeRecettes),

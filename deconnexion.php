@@ -1,7 +1,8 @@
 <?php
+    session_start();
     session_destroy();
     
-    sleep(3);
+    sleep(1);
     
     if( isset($_SERVER['HTTP_REFERER']) )
         header('Location: ' . $_SERVER['HTTP_REFERER'] . '' );

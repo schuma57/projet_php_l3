@@ -37,7 +37,7 @@
                                 and (hierarchie[attribute(get, "niveau"~(j-1))]['sous-categorie'] is defined) %}
                             <select name="niveau{{ j }}" class="selectpicker">
                                 {% for deux in hierarchie[attribute(get, "niveau"~(j-1))]['sous-categorie'] %}
-                                    <option {% if attribute(get, "niveau"~i) == deux %} selected {% endif %}
+                                    <option {% if attribute(get, "niveau"~j) == deux %} selected {% endif %}
                                             value="{{ deux }}">{{ deux }}</option>
                                 {% endfor %}
                             </select>

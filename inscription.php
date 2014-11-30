@@ -12,7 +12,7 @@
     ));
     //==============================================================//
 
-    if( !isset($_POST['submit']))
+    if( !isset($_POST['submit']) )
     {
         echo $twig->render('inscription.html.twig',
             array('session' => $_SESSION)
@@ -20,22 +20,21 @@
     }
     else
     {
-        $user = json_decode( file_get_contents('models/users.json'), true );
+        $users = json_decode( file_get_contents('models/users.json'), true );
         if(validePseudo() )
-            $user[$_POST['pseudo']] = new User;
-       // header
-       
-        if(validePseudo() )     $user->setPseudo( $_POST['pseudo'] );
-        if(valideMdp() )        $user->setMotDePasse( sha1($_POST['modepasse'] ));
-        if(valideNom())         $user->setNom( $_POST['nom'] );
-        if(validePrenom())      $user->setPrenom( $_POST['prenom'] );
-        if(valideEmail())       $user->setEmail($_POST['email']);
-        if(valideNaissance())   $user->setNaissance($_POST['naissance']);
-        if(valideAdresse())     $user->setAdresse( $_POST['adresse']);
-        if(valideTelephone())   $user->setTelephone($_POST['telephone']);
+            $users[$_POST['pseudo']] = new User;
 
-        file_put_contents('models/users.json', json_encode($user));
-        $_SESSION['user_courant'] = $user[$_POST['pseudo']];
+        if(validePseudo() )     $users[$_POST['pseudo']]->setPseudo( $_POST['pseudo'] );
+        if(valideMdp() )        $users[$_POST['pseudo']]->setMotDePasse( sha1($_POST['motdepasse']) );
+        if(valideNom())         $users[$_POST['pseudo']]->setNom( $_POST['nom'] );
+        if(validePrenom())      $users[$_POST['pseudo']]->setPrenom( $_POST['prenom'] );
+        if(valideEmail())       $users[$_POST['pseudo']]->setEmail($_POST['email']);
+        if(valideNaissance())   $users[$_POST['pseudo']]->setNaissance($_POST['naissance']);
+        if(valideAdresse())     $users[$_POST['pseudo']]->setAdresse( $_POST['adresse']);
+        if(valideTelephone())   $users[$_POST['pseudo']]->setTelephone($_POST['telephone']);
+
+        file_put_contents('models/users.json', json_encode($users) );
+        $_SESSION['user_courant'] = $users[$_POST['pseudo']];
 
         //---- redirection vers l'accueil du site
         header('Location: index.php');
@@ -44,7 +43,7 @@
     
     function validePseudo()
     {
-        if(isset($_POST['pseudo']) && !empty($_POST['pseudo']) )
+        if( isset($_POST['pseudo']) && !empty($_POST['pseudo']) )
             return true;
         else
             return false;
@@ -52,7 +51,7 @@
 
     function valideMdp()
     {
-        if(isset($_POST['motdepasse']) && !empty($_POST['motdepasse']) )
+        if( isset($_POST['motdepasse']) && !empty($_POST['motdepasse']) )
             return true;
         else
             return false;

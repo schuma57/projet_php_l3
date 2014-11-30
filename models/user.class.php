@@ -1,6 +1,6 @@
 <?php
 
-class User
+class User implements JsonSerializable
 {
     /**
      * @var string
@@ -183,6 +183,20 @@ class User
     public function __toString()
     {
         return null;
+    }
+
+
+    public function jsonSerialize() {
+        return [
+            'pseudo'        => $this->getPseudo(),
+            'motDePasse'    => $this->getMotDePasse(),
+            'nom'           => $this->getNom(),
+            'prenom'        => $this->getPrenom(),
+            'email'         => $this->getEmail(),
+            'naissance'     => $this->getNaissance(),
+            'adresse'       => $this->getAdresse(),
+            'telephone'     => $this->getTelephone()
+        ];
     }
 
 

@@ -1,5 +1,7 @@
 <?php
     session_start();
+    if( !isset($_SESSION['panier']) )
+        $_SESSION['panier'] = array();
     require_once("Donnees.inc.php");
 
     //=============================================================//
@@ -24,9 +26,10 @@
     $imageExiste = testerSiImageExiste($urlImage);
 
     echo $twig->render('recette.html.twig',
-        array('recettes' => $Recettes,
+        array('session' => $_SESSION,
+            'recettes'  => $Recettes,
             'id_recette' => $_GET['id'],
-            'nomImage' => $urlImage,
+            'nomImage'  => $urlImage,
             'imageExiste' => $imageExiste,
         )
     );
