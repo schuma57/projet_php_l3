@@ -5,23 +5,23 @@
     
     <h2> Connexion </h2>
     
-    <table method="post">
-        <div>
-            <label> Pseudo * : </label>
+    <form method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="pseudo" class="control-label"> Pseudo * : </label>
             <input id="pseudo" name="pseudo" type="text"/>
         </div>
         
-        <div>
-            <label> Mot de passe * : </label>
-            <input name="motdepasse" type="password" />
+        <div class="form-group">
+            <label for="motdepasse" class="control-label"> Mot de passe * : </label>
+            <input id="motdepasse" name="motdepasse" type="password" />
         </div>
       
         <br/>
-        <div>
+        <div class="form-group">
             <button type="submit" name="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-ok-sign"></span> Envoyer </button>
         </div>
-    </table>
+    </form>
     
     <div>
         <a href="inscription.php">

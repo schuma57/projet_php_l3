@@ -5,41 +5,24 @@
 <section class="row">
 
     <div class="col-xs-12 col-md-12">
-        <h2 class="text-center"> Les cocktails </h2>
+        <h2 class="text-center"> Les cocktails </small><span class="badge">{{ nbCocktail }}</span> </h2>
     </div>
 
-    <div class="col-xs-12 col-md-12">
+    <div class="col-xs-12 col-md-12"> {#--------- le fil d'ariane -------#}
         <ul class="breadcrumb">
             <li><a href="cocktails.php">Tout</a></li>
-            {% if get.niveau1 is defined %}
-                <li>{{ get.niveau1 }}</li>
-            {% endif %}
-            {% if get.niveau2 is defined %}
-                <li>{{ get.niveau2 }}</li>
-            {% endif %}
-            {% if get.niveau3 is defined %}
-                <li>{{ get.niveau3 }}</li>
-            {% endif %}
-            {% if get.niveau4 is defined %}
-                <li>{{ get.niveau4 }}</li>
-            {% endif %}
-            {% if get.niveau5 is defined %}
-                <li>{{ get.niveau5 }}</li>
-            {% endif %}
-            {% if get.niveau6 is defined %}
-                <li>{{ get.niveau6 }}</li>
-            {% endif %}
-            {% if get.niveau7 is defined %}
-                <li>{{ get.niveau7 }}</li>
-            {% endif %}
-            {% if get.niveau8 is defined %}
-                <li>{{ get.niveau8 }}</li>
-            {% endif %}
+
+            {% for i in 1..8 %}
+                {% if attribute(get, "niveau" ~ i) is defined %}
+                    <li>{{ attribute(get, "niveau" ~ i) }}</li>
+                {% endif %}
+            {% endfor %}
+
         </ul>
     </div>
 
     <div clas="row">
-        <div class="col-md-3 col-xs-12">
+        <div class="col-md-3 col-xs-12"> {#---- les huit select pour filtrer les cocktails ----#}
 
             <form method="post" action="#" name="formulaire">
                 <div class="form-group">
@@ -49,61 +32,18 @@
                         {% endfor %}
                     </select>
 
-                    {% if (get.niveau1 is defined) and (hierarchie[get.niveau1]['sous-categorie'] is defined) %}
-                        <select name="niveau2" class="selectpicker">
-                            {% for deux in hierarchie[get.niveau1]['sous-categorie'] %}
-                                <option {% if get.niveau2 == deux %} selected {% endif %} value="{{ deux }}">{{ deux }}</option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
+                    {% for j in 2..8 %}
+                        {% if (attribute(get, "niveau"~(j-1)) is defined)
+                                and (hierarchie[attribute(get, "niveau"~(j-1))]['sous-categorie'] is defined) %}
+                            <select name="niveau{{ j }}" class="selectpicker">
+                                {% for deux in hierarchie[attribute(get, "niveau"~(j-1))]['sous-categorie'] %}
+                                    <option {% if attribute(get, "niveau"~i) == deux %} selected {% endif %}
+                                            value="{{ deux }}">{{ deux }}</option>
+                                {% endfor %}
+                            </select>
+                        {% endif %}
+                    {% endfor %}
 
-                    {% if (get.niveau2 is defined) and (hierarchie[get.niveau2]['sous-categorie'] is defined) %}
-                        <select name="niveau3" class="selectpicker">
-                            {% for trois in hierarchie[get.niveau2]['sous-categorie'] %}
-                                <option <option {% if get.niveau3 == trois %} selected {% endif %} value="{{ trois }}">{{ trois }}</option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
-
-                    {% if (get.niveau3 is defined) and (hierarchie[get.niveau3]['sous-categorie'] is defined) %}
-                        <select name="niveau4" class="selectpicker">
-                            {% for quatre in hierarchie[get.niveau3]['sous-categorie'] %}
-                                <option <option {% if get.niveau4 == quatre %} selected {% endif %} value="{{ quatre }}">{{ quatre }}</option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
-
-                    {% if (get.niveau4 is defined) and (hierarchie[get.niveau4]['sous-categorie'] is defined) %}
-                        <select name="niveau5" class="selectpicker">
-                            {% for cinq in hierarchie[get.niveau4]['sous-categorie'] %}
-                                <option <option {% if get.niveau5 == cinq %} selected {% endif %} value="{{ cinq }}">{{ cinq }}</option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
-
-                    {% if (get.niveau5 is defined) and (hierarchie[get.niveau5]['sous-categorie'] is defined) %}
-                        <select name="niveau6" class="selectpicker">
-                            {% for six in hierarchie[get.niveau5]['sous-categorie'] %}
-                                <option <option {% if get.niveau6 == six %} selected {% endif %} value="{{ six }}">{{ six }}</option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
-
-                    {% if (get.niveau6 is defined) and (hierarchie[get.niveau6]['sous-categorie'] is defined) %}
-                        <select name="niveau7" class="selectpicker">
-                            {% for sept in hierarchie[get.niveau6]['sous-categorie'] %}
-                                <option <option {% if get.niveau7 == sept %} selected {% endif %} value="{{ sept }}">{{ sept }}</option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
-
-                    {% if (get.niveau7 is defined) and (hierarchie[get.niveau7]['sous-categorie'] is defined) %}
-                        <select name="niveau8" class="selectpicker">
-                            {% for huit in hierarchie[get.niveau7]['sous-categorie'] %}
-                                <option <option {% if get.niveau8 == huit %} selected {% endif %} value="{{ huit }}">{{ huit }}</option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
                 </div>
                 <input type="submit" name="submit" value="Envoyer" class="btn btn-primary" />
             </form>

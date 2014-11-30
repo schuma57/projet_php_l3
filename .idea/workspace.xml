@@ -4,33 +4,35 @@
     <list default="true" id="53789f05-36cc-4576-b286-25c0aa0e404f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/cocktails.html.twig" afterPath="$PROJECT_DIR$/templates/cocktails.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cocktails.php" afterPath="$PROJECT_DIR$/cocktails.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html.twig" afterPath="$PROJECT_DIR$/templates/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/connexion.html.twig" afterPath="$PROJECT_DIR$/templates/connexion.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/connexion.php" afterPath="$PROJECT_DIR$/connexion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inscription.html.twig" afterPath="$PROJECT_DIR$/templates/inscription.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inscription.php" afterPath="$PROJECT_DIR$/inscription.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu.html.twig" afterPath="$PROJECT_DIR$/templates/menu.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/recette.html.twig" afterPath="$PROJECT_DIR$/templates/recette.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recette.php" afterPath="$PROJECT_DIR$/recette.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user.class.php" afterPath="$PROJECT_DIR$/models/user.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projet.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417089933812" ignored="false" />
+    <file path="/Dummy.txt" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417333089953" ignored="false" />
     <file path="/recette.class.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1415879661615" ignored="false" />
-    <file path="/user.class.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1415880115603" ignored="false" />
+    <file path="/user.class.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417334288575" ignored="false" />
     <file path="/index.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1416650592031" ignored="false" />
-    <file path="/menu.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417003892123" ignored="false" />
-    <file path="/connexion.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1415880731612" ignored="false" />
-    <file path="/inscription.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1415882748245" ignored="false" />
-    <file path="/inscription.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1415881571357" ignored="false" />
+    <file path="/menu.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417341613299" ignored="false" />
+    <file path="/connexion.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417341855808" ignored="false" />
+    <file path="/inscription.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417341740198" ignored="false" />
+    <file path="/inscription.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417342487048" ignored="false" />
     <file path="/cocktails.php.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1416351139523" ignored="false" />
-    <file path="/cocktails.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417187685928" ignored="false" />
+    <file path="/cocktails.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417294165172" ignored="false" />
     <file path="/style.css" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1416557832527" ignored="false" />
     <file path="/index.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417127917483" ignored="false" />
-    <file path="/cocktails.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417187480683" ignored="false" />
+    <file path="/cocktails.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417299339983" ignored="false" />
     <file path="/recette.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417177406548" ignored="false" />
     <file path="/recette.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417177749824" ignored="false" />
     <file path="/test.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417079764469" ignored="false" />
     <file path="/Donnees.inc.php" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417103177172" ignored="false" />
     <file path="/pagination.js" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417126436884" ignored="false" />
+    <file path="/connexion.html.twig" changelist="53789f05-36cc-4576-b286-25c0aa0e404f" time="1417342745145" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,43 +55,43 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="23" selection-start="532" selection-end="532" vertical-scroll-proportion="-9.375">
+            <state line="2" column="36" selection-start="63" selection-end="63" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cocktails.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cocktails.php">
+      <file leaf-file-name="user.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/user.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="30" selection-start="968" selection-end="968" vertical-scroll-proportion="0.4163424">
+            <state line="198" column="51" selection-start="3122" selection-end="3122" vertical-scroll-proportion="-15.916667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cocktails.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cocktails.html.twig">
+      <file leaf-file-name="inscription.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/inscription.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="30" selection-start="1319" selection-end="1319" vertical-scroll-proportion="-6.25">
+            <state line="44" column="76" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-27.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pagination.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pagination.js">
+      <file leaf-file-name="inscription.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inscription.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="63" selection-start="952" selection-end="952" vertical-scroll-proportion="0.0">
+            <state line="36" column="67" selection-start="1419" selection-end="1419" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recette.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/recette.html.twig">
+      <file leaf-file-name="users.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/users.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="30" selection-start="564" selection-end="564" vertical-scroll-proportion="-5.1666665">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,34 +100,43 @@
       <file leaf-file-name="menu.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="53" selection-start="868" selection-end="868" vertical-scroll-proportion="0.0">
+            <state line="33" column="42" selection-start="1407" selection-end="1407" vertical-scroll-proportion="-9.375">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Donnees.inc.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Donnees.inc.php">
+      <file leaf-file-name="connexion.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/connexion.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1743" column="3" selection-start="65764" selection-end="65764" vertical-scroll-proportion="-318.375">
+            <state line="25" column="9" selection-start="802" selection-end="802" vertical-scroll-proportion="0.6713147">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recette.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/recette.php">
+      <file leaf-file-name="connexion.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/connexion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="36" selection-start="878" selection-end="878" vertical-scroll-proportion="-17.5">
+            <state line="12" column="9" selection-start="400" selection-end="400" vertical-scroll-proportion="-5.625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
+      <file leaf-file-name="cocktails.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cocktails.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="67" selection-start="1464" selection-end="1464" vertical-scroll-proportion="-12.666667">
+            <state line="47" column="31" selection-start="1371" selection-end="1371" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cocktails.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cocktails.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="95" selection-start="760" selection-end="760" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,13 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/connexion.php" />
-        <option value="$PROJECT_DIR$/inscription.php" />
-        <option value="$PROJECT_DIR$/templates/cocktails.php.twig" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/templates/menu.html.twig" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/templates/test.html.twig" />
         <option value="$PROJECT_DIR$/Donnees.inc.php" />
         <option value="$PROJECT_DIR$/css/pagination.js" />
@@ -163,15 +167,23 @@
         <option value="$PROJECT_DIR$/templates/index.html.twig" />
         <option value="$PROJECT_DIR$/recette.php" />
         <option value="$PROJECT_DIR$/templates/recette.html.twig" />
-        <option value="$PROJECT_DIR$/templates/cocktails.html.twig" />
         <option value="$PROJECT_DIR$/cocktails.php" />
+        <option value="$PROJECT_DIR$/templates/cocktails.html.twig" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/models/user.class.php" />
+        <option value="$PROJECT_DIR$/templates/menu.html.twig" />
+        <option value="$PROJECT_DIR$/inscription.php" />
+        <option value="$PROJECT_DIR$/connexion.php" />
+        <option value="$PROJECT_DIR$/templates/inscription.html.twig" />
+        <option value="$PROJECT_DIR$/templates/connexion.html.twig" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1346" />
-    <option name="height" value="733" />
+    <option name="x" value="-2" />
+    <option name="width" value="1338" />
+    <option name="height" value="721" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -199,7 +211,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,6 +273,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -284,6 +296,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="53789f05-36cc-4576-b286-25c0aa0e404f" name="Default" comment="" />
@@ -293,14 +322,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1346" height="733" extended-state="0" />
+    <frame x="-2" y="0" width="1338" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21527778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2197205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -376,104 +405,110 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/connexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="20" selection-start="26" selection-end="26" vertical-scroll-proportion="-0.625" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/connexion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="4" selection-start="4" selection-end="104" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deconnexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inscription.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="10" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="449" selection-end="449" vertical-scroll-proportion="-8.125" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/test.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="121" selection-start="4223" selection-end="4223" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="53" selection-start="868" selection-end="868" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="23" selection-start="532" selection-end="532" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
+        <state line="93" column="121" selection-start="4223" selection-end="4223" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="67" selection-start="1464" selection-end="1464" vertical-scroll-proportion="-12.666667">
+        <state line="42" column="67" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/pagination.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="63" selection-start="952" selection-end="952" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="26" column="63" selection-start="952" selection-end="952" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/recette.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="36" selection-start="878" selection-end="878" vertical-scroll-proportion="-17.5">
+        <state line="28" column="36" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/recette.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="30" selection-start="564" selection-end="564" vertical-scroll-proportion="-5.1666665">
+        <state line="20" column="30" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Donnees.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1743" column="3" selection-start="65764" selection-end="65764" vertical-scroll-proportion="-318.375">
+        <state line="1743" column="3" selection-start="65764" selection-end="65764" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cocktails.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="30" selection-start="1319" selection-end="1319" vertical-scroll-proportion="-6.25">
+        <state line="24" column="95" selection-start="760" selection-end="760" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cocktails.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="30" selection-start="968" selection-end="968" vertical-scroll-proportion="0.4163424">
+        <state line="47" column="31" selection-start="1371" selection-end="1371" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/users.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="36" selection-start="63" selection-end="63" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="51" selection-start="3122" selection-end="3122" vertical-scroll-proportion="-15.916667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="42" selection-start="1407" selection-end="1407" vertical-scroll-proportion="-9.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="67" selection-start="1419" selection-end="1419" vertical-scroll-proportion="-7.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="9" selection-start="400" selection-end="400" vertical-scroll-proportion="-5.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inscription.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="76" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-27.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/connexion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="9" selection-start="802" selection-end="802" vertical-scroll-proportion="0.6713147">
           <folding />
         </state>
       </provider>

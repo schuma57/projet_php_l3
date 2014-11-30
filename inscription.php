@@ -20,11 +20,13 @@
     }
     else
     {
-        $user = new User;
+        $user = json_decode( file_get_contents('models/users.json'), true );
+        if(validePseudo() )
+            $user[$_POST['pseudo']] = new User;
        // header
        
         if(validePseudo() )     $user->setPseudo( $_POST['pseudo'] );
-        if(valideMdp() )        $user->setMotDePasse( $_POST['modepasse']);
+        if(valideMdp() )        $user->setMotDePasse( sha1($_POST['modepasse'] ));
         if(valideNom())         $user->setNom( $_POST['nom'] );
         if(validePrenom())      $user->setPrenom( $_POST['prenom'] );
         if(valideEmail())       $user->setEmail($_POST['email']);
@@ -32,7 +34,11 @@
         if(valideAdresse())     $user->setAdresse( $_POST['adresse']);
         if(valideTelephone())   $user->setTelephone($_POST['telephone']);
 
-        //$_SESSION['users'] += $user;
+        file_put_contents('models/users.json', json_encode($user));
+        $_SESSION['user_courant'] = $user[$_POST['pseudo']];
+
+        //---- redirection vers l'accueil du site
+        header('Location: index.php');
     }
 
     

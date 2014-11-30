@@ -5,7 +5,7 @@
     
     <h2> Inscription </h2>
     
-    <table method="post">
+    <form method="post" role="form">
         <div>
             <label> Pseudo * : </label>
             <input id="pseudo" name="pseudo" type="text"/>
@@ -41,9 +41,10 @@
         </div>
         <br/>
         <div>
-            <button type="submit" name="submit"> Envoyer </button>
+            <button type="submit" name="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-ok-sign"></span> Enregister </button>
         </div>
-    </table>
+    </form>
 
     {% endblock %}
     

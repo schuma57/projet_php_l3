@@ -34,6 +34,10 @@ class User
      * @var string
      */
     private $telephone;
+    /**
+     * @var array
+     */
+    private $panier;
 
 
     /**
@@ -164,6 +168,14 @@ class User
         $this->telephone = $tel;
     }
 
+    /**
+     * @param $idCocktail
+     */
+    public function addPanier($idCocktail)
+    {
+        $this->panier[] = $idCocktail;
+    }
+
 
     /**
      * @return string
@@ -171,5 +183,19 @@ class User
     public function __toString()
     {
         return null;
+    }
+
+
+    public function __construct(/*array $donnees*/)
+    {
+        $this->panier = array();
+        /*$this->pseudo = $donnees['pseudo'];
+        $this->motDePasse = $donnees['motDePasse'];
+        $this->nom = $donnees['nom'];
+        $this->prenom = $donnees['prenom'];
+        $this->email = $donnees['email'];
+        $this->naissance = $donnees['naissance'];
+        $this->adresse = $donnees['adresse'];
+        $this->telephone = $donnees['telephone'];*/
     }
 }

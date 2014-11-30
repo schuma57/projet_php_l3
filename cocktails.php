@@ -14,7 +14,7 @@
     $listeRecettes = $Recettes;
 
     //================ preparation du fil d'ariane ============
-    for($i = 2; $i < 8 ; $i++)
+    for($i = 2; $i <= 8 ; $i++)
     {
         if( isset($_POST['niveau'. $i.'']))
         {
@@ -29,11 +29,39 @@
     {
         unset($listeRecettes);
 
+        $max=1;
+        for($i = 1 ; $i <= 8; $i++)
+        {
+            if( isset($_POST['niveau'.$i]) )
+            {
+                $max = $i;
+            }
+        }
+
+        $listeAChercher[] = $_POST['niveau'.$max];
+
+        foreach( $Hierarchie[$_POST['niveau'.$max]['sous-categorie']] as $valeur)
+        {
+            $listeAChercher[] = $valeur;
+        }
+
+        for($j = $max+1 ; $j <= 8; $j++)
+        {
+            foreach($listeAChercher as $aliment)
+            {
+                foreach( $Hierarchie[$aliment]['sous-categorie'] as $valeur)
+                {
+                    $listeAChercher[] = $valeur;
+                }
+            }
+
+        }
+
         for($i = 0 ; $i < count($Recettes) ; $i++)
         {
-            for($j = 0 ; $j < count($Recettes[$i]['index']) ; $j++)
+            foreach( $listeAChercher as $aliment)
             {
-                if( $_POST['niveau1'] == $Recettes[$i]['index'][$j] )
+                if( in_array( $aliment, $Recettes[$i]['index'] ) )
                     $listeRecettes[$i] = $Recettes[$i];
             }
         }
@@ -44,7 +72,8 @@
     echo $twig->render('cocktails.html.twig',
         array('recettes' => $listeRecettes,
             'hierarchie' => $Hierarchie,
-            'get'       => $_POST
+            'get'        => $_POST,
+            'nbCocktail' => count($listeRecettes),
         )
     );
 

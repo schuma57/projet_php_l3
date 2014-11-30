@@ -10,17 +10,22 @@
     ));
     //==============================================================//
     
-    if( isset($_POST['submit']) )
+    if( !isset($_POST['submit']) )
+    {
+        echo $twig->render('connexion.html.twig',
+            array('session' => $_SESSION)
+        );
+    }
+    else
     {
         if(isset($_POST['pseudo']) && isset($_POST['motdepasse']) )
         {
-            $_SESSION['pseudo'] = $_POST['pseudo'];
+
+            $_SESSION['user_courant'] = $_POST['pseudo'];
         }
     }
     
-    echo $twig->render('connexion.html.twig',
-        array('session' => $_SESSION)
-    );
+
     
 
 ?>
