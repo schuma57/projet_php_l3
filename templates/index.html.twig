@@ -40,11 +40,10 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="js/jquery-validate.min.js"></script>
     <script type="text/javascript" src="js/pagination.js"></script>
-    <script>
-        $(document).ready(function() {
-            pagination(24,'#super .dedans','.paginator',2);
-        });
-    </script>
+
+    {% block block_scripts %}
+    {% endblock %}
 </body>
 </html>

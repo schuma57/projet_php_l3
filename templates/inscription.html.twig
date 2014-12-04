@@ -1,11 +1,11 @@
-    {% extends 'index.html.twig' %}
+{% extends 'index.html.twig' %}
 
 
-    {% block block_principal %}
+{% block block_principal %}
     
     <h2> Inscription </h2>
     
-    <form method="post" class="form-horizontal" role="form">
+    <form id="form_inscription" method="post" class="form-horizontal" role="form">
         <div class="form-group">
             <label for="pseudo" class="col-xs-12 col-sm-2 control-label"> Pseudo * : </label>
             <input id="pseudo" name="pseudo" type="text" class="col-xs-12 col-sm-6" placeholder="Pseudo" />
@@ -46,7 +46,14 @@
                     <span class="glyphicon glyphicon-ok-sign"></span> Enregister </button>
             </div>
         </div>
-    </form>
+    </form> <!-- fin du formulaire -->
 
-    {% endblock %}
-    
+{% endblock %}
+
+{% block block_scripts %}
+    <script>
+        $('#form_inscription').validate(
+
+        );
+    </script>
+{% endblock %}
