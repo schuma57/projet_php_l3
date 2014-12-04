@@ -2,20 +2,34 @@
 
 
 {% block block_principal %}
-    
-    <h2> Connexion </h2>
-    
+<div class="row">
+    <h2 class="text-center"> Connexion </h2>
+</div>
+
+<section class="row">
+
+    {% if erreur is defined %}
+        <div class="row">
+            <div class="col-md-12 col-xs-12 erreur">
+                {{ erreur }}
+            </div>
+        </div>
+        <br />
+    {% endif %}
+
     <form id="form_connexion" method="post" class="form-horizontal" role="form">
+        <div id="erreurs"></div>
+
         <div class="form-group">
             <label for="pseudo" class="col-xs-12 col-sm-2 control-label"> Pseudo <span class="exige">*</span> : </label>
             <input id="pseudo" name="pseudo" type="text" class="col-xs-12 col-sm-6"
-                   placeholder="Pseudo" required />
+                   placeholder="Pseudo" />
         </div>
         
         <div class="form-group">
             <label for="motdepasseco" class="col-xs-12 col-sm-2 control-label"> Mot de passe <span class="exige">*</span> : </label>
             <input id="motdepasseco" name="motdepasse" type="password" class="col-xs-12 col-sm-6"
-                   placeholder="Mot de passe" required />
+                   placeholder="Mot de passe" />
         </div>
       
         <br/>
@@ -27,19 +41,20 @@
         </div>
     </form> <!-- fin du formulaire -->
 
-    
+
     <div class="col-sm-offset-2">
         <a href="inscription.php">
             <span class="glyphicon glyphicon-record"></span> Pas encore inscrit ? </a>
     </div>
 
+</section>
 {% endblock %}
 
 
 {% block block_scripts %}
     <script>
-        $('#form_connexion').validate(
-
-        );
+        $(document).ready(function(){
+            $("#form_connexion").validate();
+        });
     </script>
 {% endblock %}

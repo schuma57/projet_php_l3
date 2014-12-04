@@ -2,7 +2,7 @@
     session_start();
     include_once("models/user.class.php");
     
-    //=============================================================//
+    //===========================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
     Twig_Autoloader::register();
     
@@ -10,7 +10,7 @@
     $twig = new Twig_Environment($loader, array(
       'cache' => false
     ));
-    //==============================================================//
+    //===========================================================================//
 
     if( !isset($_POST['submit']) )
     {
@@ -59,7 +59,7 @@
 
     function valideNom()
     {
-        if( $_POST['nom'] != '' && $_POST['nom'] != null )
+        if( isset($_POST['nom']) && $_POST['nom'] != '' && $_POST['nom'] != null )
             return true;
         else
             return false;
@@ -67,7 +67,7 @@
 
     function validePrenom()
     {
-        if( $_POST['prenom'] != '' && $_POST['prenom'] != null )
+        if( isset($_POST['prenom']) && $_POST['prenom'] != '' && $_POST['prenom'] != null )
             return true;
         else
             return false;
@@ -75,7 +75,7 @@
 
     function valideEmail()
     {
-        if( $_POST['email'] != '' && $_POST['email'] != null )
+        if( isset($_POST['email']) && $_POST['email'] != '' && $_POST['email'] != null )
             return true;
         else
             return false;
@@ -83,7 +83,7 @@
 
     function valideNaissance()
     {
-        if( $_POST['naissance'] != '' && $_POST['naissance'] != null )
+        if( isset($_POST['naissance']) && $_POST['naissance'] != '' && $_POST['naissance'] != null )
             return true;
         else
             return false;
@@ -91,7 +91,7 @@
 
     function valideAdresse()
     {
-        if( $_POST['postale'] != '' && $_POST['postale'] != null )
+        if( isset($_POST['postale']) && $_POST['postale'] != '' && $_POST['postale'] != null )
             return true;
         else
             return false;
@@ -99,7 +99,7 @@
 
     function valideTelephone()
     {
-        if( $_POST['telephone'] != '' && $_POST['telephone'] != null )
+        if( isset($_POST['telephone']) && $_POST['telephone'] != '' && $_POST['telephone'] != null )
             return true;
         else
             return false;

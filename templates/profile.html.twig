@@ -1,0 +1,43 @@
+{% extends 'index.html.twig' %}
+
+{% block block_principal %}
+
+<section class="row">
+    <h2 class="text-center"> Profile de {{ session.user_courant.pseudo|capitalize }} </h2>
+
+    <div class="well">
+        <table class="table table-bordered">
+            <tr>
+                <td> Pseudo </td>
+                <td> {{ session.user_courant.pseudo }} </td>
+            </tr>
+            <tr>
+                <td> Nom </td>
+                <td> {{ session.user_courant.nom }} </td>
+            </tr>
+            <tr>
+                <td> Prénom </td>
+                <td> {{ session.user_courant.prenom }} </td>
+            </tr>
+            <tr>
+                <td> Date de naissance </td>
+                <td> {{ session.user_courant.naissance }} </td>
+            </tr>
+            <tr>
+                <td> Adresse </td>
+                <td> {{ session.user_courant.adresse }} </td>
+            </tr>
+            <tr>
+                <td> Email </td>
+                <td> {{ session.user_courant.email }} </td>
+            </tr>
+            <tr>
+                <td> Telephone </td>
+                <td> {{ session.user_courant.telephone }} </td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+{% endblock %}

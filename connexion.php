@@ -2,7 +2,7 @@
     session_start();
     if( !isset($_SESSION['panier']) )
         $_SESSION['panier'] = array();
-    //=============================================================//
+    //=====================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
     Twig_Autoloader::register();
     
@@ -10,17 +10,19 @@
     $twig = new Twig_Environment($loader, array(
       'cache' => false
     ));
-    //==============================================================//
+    //=====================================================================//
     
     if( !isset($_POST['submit']) )
     {
         echo $twig->render('connexion.html.twig',
-            array('session' => $_SESSION)
+            array('session' => $_SESSION
+            )
         );
     }
     else
     {
-        if(isset($_POST['pseudo']) && isset($_POST['motdepasse']) )
+        if(isset($_POST['pseudo']) && $_POST['pseudo'] != ''
+                && isset($_POST['motdepasse']) && $_POST['motdepasse'] != '' )
         {
             $listeUsers = json_decode( file_get_contents('models/users.json'), true );
 
@@ -33,9 +35,17 @@
                     return;
                 }
             }
+            else
+                $erreur = "Cette combinaison pseudo - mot de passe est incorrect.";
         }
-        header('Location: connexion.php');
-    }
+        else
+            $erreur = "Vous devez renseigner votre pseudo et votre mot de passe.";
 
+        echo $twig->render('connexion.html.twig',
+            array('session' => $_SESSION,
+                'erreur' => $erreur
+            )
+        );
+    }
 
 ?>

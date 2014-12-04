@@ -52,8 +52,8 @@
 
 {% block block_scripts %}
     <script>
-        $('#form_inscription').validate(
-
-        );
+        $(document).ready(function(){
+            $("#form_inscription").validate();
+        });
     </script>
 {% endblock %}

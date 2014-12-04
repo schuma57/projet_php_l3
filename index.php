@@ -3,7 +3,7 @@
     if( !isset($_SESSION['panier']) )
         $_SESSION['panier'] = array();
     require_once("Donnees.inc.php");
-    //=============================================================//
+    //==================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
     Twig_Autoloader::register();
     
@@ -11,7 +11,7 @@
     $twig = new Twig_Environment($loader, array(
       'cache' => false
     ));
-    //==============================================================//
+    //==================================================================//
 
     echo $twig->render('index.html.twig',
         array('session' => $_SESSION,
