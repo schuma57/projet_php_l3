@@ -13,9 +13,10 @@
     ));
     //=======================================================================//
 
+
     $listeRecettes = $Recettes;
 
-    //================ preparation du fil d'ariane ============
+    //================ preparation du fil d'ariane =================
     for($i = 2; $i <= 8 ; $i++)
     {
         if( isset($_POST['niveau'. $i.'']))
@@ -23,9 +24,9 @@
             if( !in_array($_POST['niveau' .$i .''] , $Hierarchie[ $_POST['niveau'.($i-1).''] ]['sous-categorie'] ) )
                 unset($_POST['niveau'.$i.''] );
         }
-    } //=======================================
+    } //=========================================================
 
-    //================= filtrage avant affichage ==============
+    //================= filtrage avant affichage ================
 
     if( isset($_POST['submit']) )
     {

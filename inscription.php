@@ -20,25 +20,39 @@
     }
     else
     {
-        $users = json_decode( file_get_contents('models/users.json'), true );
-        if(validePseudo() )
-            $users[$_POST['pseudo']] = new User;
+        if( validePseudo() && valideMdp() )
+        {
+            $users = json_decode( file_get_contents('models/users.json'), true );
+            if(validePseudo() )
+                $users[$_POST['pseudo']] = new User;
 
-        if(validePseudo() )     $users[$_POST['pseudo']]->setPseudo( $_POST['pseudo'] );
-        if(valideMdp() )        $users[$_POST['pseudo']]->setMotDePasse( sha1($_POST['motdepasse']) );
-        if(valideNom())         $users[$_POST['pseudo']]->setNom( $_POST['nom'] );
-        if(validePrenom())      $users[$_POST['pseudo']]->setPrenom( $_POST['prenom'] );
-        if(valideEmail())       $users[$_POST['pseudo']]->setEmail($_POST['email']);
-        if(valideNaissance())   $users[$_POST['pseudo']]->setNaissance($_POST['naissance']);
-        if(valideAdresse())     $users[$_POST['pseudo']]->setAdresse( $_POST['adresse']);
-        if(valideTelephone())   $users[$_POST['pseudo']]->setTelephone($_POST['telephone']);
+            if(validePseudo() )     $users[$_POST['pseudo']]->setPseudo( $_POST['pseudo'] );
+            if(valideMdp() )        $users[$_POST['pseudo']]->setMotDePasse( sha1($_POST['motdepasse']) );
+            if(valideNom())         $users[$_POST['pseudo']]->setNom( $_POST['nom'] );
+            if(validePrenom())      $users[$_POST['pseudo']]->setPrenom( $_POST['prenom'] );
+            if(valideSexe())        $users[$_POST['pseudo']]->setSexe($_POST['sexe']);
+            if(valideEmail())       $users[$_POST['pseudo']]->setEmail($_POST['email']);
+            if(valideNaissance())   $users[$_POST['pseudo']]->setNaissance($_POST['naissance']);
+            if(valideAdresse())     $users[$_POST['pseudo']]->setAdresse( $_POST['adresse']);
+            if(valideTelephone())   $users[$_POST['pseudo']]->setTelephone($_POST['telephone']);
 
-        file_put_contents('models/users.json', json_encode($users) );
-        $_SESSION['user_courant'] = $users[$_POST['pseudo']];
+            file_put_contents('models/users.json', json_encode($users) );
+            $_SESSION['user_courant'] = json_decode(json_encode($users[$_POST['pseudo']]));
 
-        //---- redirection vers l'accueil du site
-        header('Location: index.php');
-    }
+            //---- redirection vers l'accueil du site
+            header('Location: index.php');
+        }
+        else
+        {
+            $erreur = "Un pseudo et un mot de passe sont requis";
+
+            echo $twig->render('inscription.html.twig',
+                array('session' => $_SESSION,
+                    'erreur'    => $erreur
+                )
+            );
+        }
+    } //TODO faire tests cote serveur avant inscription
 
     
     function validePseudo()
@@ -68,6 +82,14 @@
     function validePrenom()
     {
         if( isset($_POST['prenom']) && $_POST['prenom'] != '' && $_POST['prenom'] != null )
+            return true;
+        else
+            return false;
+    }
+
+    function valideSexe()
+    {
+        if( isset($_POST['sexe']) && $_POST['sexe'] != '' && $_POST['sexe'] != null )
             return true;
         else
             return false;

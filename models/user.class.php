@@ -21,9 +21,13 @@ class User implements JsonSerializable
     /**
      * @var string
      */
-    private $email;
+    private $sexe;
     /**
      * @var string
+     */
+    private $email;
+    /**
+     * @var \Date
      */
     private $naissance;
     /**
@@ -107,6 +111,22 @@ class User implements JsonSerializable
     /**
      * @return string
      */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * @param $sexe
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+    }
+
+    /**
+     * @return string
+     */
     public function getEmail()
     {
         return $this->email;
@@ -121,7 +141,7 @@ class User implements JsonSerializable
     }
 
     /**
-     * @return string
+     * @return \Date
      */
     public function getNaissance()
     {
@@ -129,7 +149,7 @@ class User implements JsonSerializable
     }
 
     /**
-     * @param $naiss
+     * @param \Date $naiss
      */
     public function setNaissance($naiss)
     {

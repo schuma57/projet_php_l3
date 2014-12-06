@@ -5,6 +5,14 @@
     sleep(1);
     
     if( isset($_SERVER['HTTP_REFERER']) )
-        header('Location: ' . $_SERVER['HTTP_REFERER'] . '' );
-    else
-        header('Location: index.php');
+    {
+        if(basename($_SERVER['HTTP_REFERER']) == "index.php"
+            || basename($_SERVER['HTTP_REFERER']) == "cocktails.php"
+            || stripos($_SERVER['HTTP_REFERER'], "recette.php") != false )
+        {
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . '' );
+            return;
+        }
+    }
+
+    header('Location: index.php');

@@ -6,6 +6,11 @@ html
     position: relative;
 }
 
+#logo
+{
+    padding-top: 2em;
+}
+
 .cocktail-out
 {
     margin-bottom: 1em;

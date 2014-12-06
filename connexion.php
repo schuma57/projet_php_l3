@@ -11,7 +11,8 @@
       'cache' => false
     ));
     //=====================================================================//
-    
+
+
     if( !isset($_POST['submit']) )
     {
         echo $twig->render('connexion.html.twig',
@@ -34,6 +35,8 @@
                     header('Location: index.php');
                     return;
                 }
+                else
+                    $erreur = "Cette combinaison pseudo - mot de passe est incorrect.";
             }
             else
                 $erreur = "Cette combinaison pseudo - mot de passe est incorrect.";

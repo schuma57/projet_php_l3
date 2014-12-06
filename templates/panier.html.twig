@@ -1,0 +1,15 @@
+{% extends 'index.html.twig' %}
+
+
+{% block block_principal %}
+    <h2><span class="glyphicon glyphicon-star"></span> Mes recettes préférées</h2>
+
+    <div class="well">
+        <ul>
+        {% for fav in session.user_courant.panier %}
+            <li>{{ fav }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+

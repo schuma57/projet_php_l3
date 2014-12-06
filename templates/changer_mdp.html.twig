@@ -1,0 +1,66 @@
+{% extends 'index.html.twig' %}
+
+{% set user = session.user_courant %}
+
+{% block block_principal %}
+    <div class="row">
+        <h2 class="text-center"> Modification de mot de passe </h2>
+    </div>
+
+    <section class="row">
+        {% if erreur is defined %}
+            <div class="row">
+                <div class="col-md-12 col-xs-12 erreur">
+                    {{ erreur }}
+                </div>
+            </div>
+            <br />
+        {% endif %}
+
+
+        <form id="form_mdp" method="post" class="form-horizontal" role="form">
+            <div id="erreurs"></div>
+
+            <div class="form-group">
+                <label for="pseudo" class="col-xs-12 col-sm-2 control-label"> Pseudo : </label>
+                <input id="pseudo" name="pseudo" type="text" class="col-xs-12 col-sm-6" value="{{ user.pseudo }}"
+                       placeholder="Pseudo" disabled />
+            </div>
+
+            <div class="form-group">
+                <label for="mdpactuel" class="col-xs-12 col-sm-2 control-label"> Actuel <span class="exige">*</span> : </label>
+                <input id="mdpactuel" name="mdpactuel" type="password" class="col-xs-12 col-sm-6"
+                       placeholder="Mot de passe actuel" />
+            </div>
+
+            <div class="form-group">
+                <label for="nouveaumdp" class="col-xs-12 col-sm-2 control-label"> Nouveau <span class="exige">*</span> : </label>
+                <input id="nouveaumdp" name="nouveaumdp" type="password" class="col-xs-12 col-sm-6"
+                       placeholder="Nouveau mot de passe" />
+            </div>
+
+            <div class="form-group">
+                <label for="confNouveau" class="col-xs-12 col-sm-2 control-label"> Confirmez <span class="exige">*</span> : </label>
+                <input id="confNouveau" name="confNouveau" type="password" class="col-xs-12 col-sm-6"
+                       placeholder="Confirmez nouveau mot de passe" />
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <div class="col-sm-offset-2">
+                    <button type="submit" name="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-ok-sign"></span> Envoyer </button>
+                </div>
+            </div>
+        </form> <!-- fin du formulaire -->
+    </section>
+{% endblock %}
+
+
+{% block block_scripts %}
+    <script>
+        $(document).ready(function(){
+            $("#form_mdp").validate();
+        });
+    </script>
+{% endblock %}

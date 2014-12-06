@@ -18,6 +18,13 @@
     //===========================================================================//
 
 
+    if( !isset($_SESSION['user_courant']) || $_SESSION['user_courant'] == '' )
+    {
+        header("Location: connexion.php");
+        exit();
+    }
+    // sinon la page peut s'afficher
+
     echo $twig->render('profile.html.twig',
         array('session' => $_SESSION)
     );

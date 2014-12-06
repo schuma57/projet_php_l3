@@ -3,10 +3,11 @@
 {% block block_principal %}
 
 <section class="row">
-    <h2 class="text-center"> Profile de {{ session.user_courant.pseudo|capitalize }} </h2>
+    <h2 class="text-center"><span class="glyphicon glyphicon-user">
+            </span> Profile de {{ session.user_courant.pseudo|capitalize }} </h2>
 
     <div class="well">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-responsive table-striped">
             <tr>
                 <td> Pseudo </td>
                 <td> {{ session.user_courant.pseudo }} </td>
@@ -18,6 +19,10 @@
             <tr>
                 <td> Prénom </td>
                 <td> {{ session.user_courant.prenom }} </td>
+            </tr>
+            <tr>
+                <td> Sexe </td>
+                <td> {{ session.user_courant.sexe }} </td>
             </tr>
             <tr>
                 <td> Date de naissance </td>
@@ -36,6 +41,7 @@
                 <td> {{ session.user_courant.telephone }} </td>
             </tr>
         </table>
+        <a href="editer_profile.php"><span class="glyphicon glyphicon-pencil"></span> Editer son profile</a>
     </div>
 
 </section>

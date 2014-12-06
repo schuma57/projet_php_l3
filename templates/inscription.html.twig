@@ -4,15 +4,20 @@
 {% block block_principal %}
     
     <h2> Inscription </h2>
-    
+    <div class="erreur">
+        {% if erreur is defined %}
+            {{ erreur }}
+        {% endif %}
+        <br /><br />
+    </div>
+
     <form id="form_inscription" method="post" class="form-horizontal" role="form">
         <div class="form-group">
-            <label for="pseudo" class="col-xs-12 col-sm-2 control-label"> Pseudo * : </label>
+            <label for="pseudo" class="col-xs-12 col-sm-2 control-label"> Pseudo <span class="exige">*</span> : </label>
             <input id="pseudo" name="pseudo" type="text" class="col-xs-12 col-sm-6" placeholder="Pseudo" />
         </div>
-        
         <div class="form-group">
-            <label for="motdepasse" class="col-xs-12 col-sm-2 control-label"> Mot de passe * : </label>
+            <label for="motdepasse" class="col-xs-12 col-sm-2 control-label"> Mot de passe <span class="exige">*</span> : </label>
             <input id="motdepasse" name="motdepasse" type="password" class="col-xs-12 col-sm-6" placeholder="Mot de passe" />
         </div>
         <div class="form-group">
@@ -22,6 +27,14 @@
         <div class="form-group">
             <label for="prenom" class="col-xs-12 col-sm-2 control-label"> Prénom : </label>
             <input id="prenom" name="prenom" type="text" class="col-xs-12 col-sm-6" placeholder="Prénom" />
+        </div>
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-2 control-label"> Sexe : </label>
+            <div class="col-xs-12 col-sm-6">
+                <input name="sexe" type="radio" value="Homme" /> Homme
+                <input name="sexe" type="radio" value="Femme" /> Femme
+                <input name="sexe" type="radio" value="" /> Ne se prononce pas
+            </div>
         </div>
         <div class="form-group">
             <label for="email" class="col-xs-12 col-sm-2 control-label"> Adresse email : </label>

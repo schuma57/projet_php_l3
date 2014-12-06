@@ -1,0 +1,68 @@
+{% extends 'index.html.twig' %}
+
+
+{% set user = session.user_courant %}
+
+{% block block_principal %}
+    <h2> Edition profile {{ user.pseudo|capitalize }} </h2>
+    <div class="erreur">
+        {% if erreur is defined %}
+            {{ erreur }}
+        {% endif %}
+        <br /><br />
+    </div>
+
+    <form id="form_modification" method="post" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="pseudo" class="col-xs-12 col-sm-2 control-label"> Pseudo : </label>
+            <input id="pseudo" name="pseudo" type="text" class="col-xs-12 col-sm-6"
+                   placeholder="Pseudo" value="{{ user.pseudo }}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="nom" class="col-xs-12 col-sm-2 control-label"> Nom : </label>
+            <input id="nom" name="nom" type="text" class="col-xs-12 col-sm-6"
+                   placeholder="Nom" value="{{ user.nom }}" />
+        </div>
+        <div class="form-group">
+            <label for="prenom" class="col-xs-12 col-sm-2 control-label"> Prénom : </label>
+            <input id="prenom" name="prenom" type="text" class="col-xs-12 col-sm-6"
+                   placeholder="Prénom" value="{{ user.prenom }}" />
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-xs-12 col-sm-2 control-label"> Adresse email : </label>
+            <input id="email" name="email" type="email" class="col-xs-12 col-sm-6"
+                   placeholder="Email" value="{{ user.email }}" />
+        </div>
+        <div class="form-group">
+            <label for="naissance" class="col-xs-12 col-sm-2 control-label"> Date de naissance : </label>
+            <input id="naissance" name="naissance" type="date" class="col-xs-12 col-sm-6"
+                   placeholder="jj/mm/aaaa" value="{{ user.naissance }}" />
+        </div>
+        <div class="form-group">
+            <label for="postale" class="col-xs-12 col-sm-2 control-label"> Adresse postale : </label>
+            <input id="postale" name="postale" type="text" class="col-xs-12 col-sm-6"
+                   placeholder="Adresse postale" value="{{ user.adresse }}" />
+        </div>
+        <div class="form-group">
+            <label for="telephone" class="col-xs-12 col-sm-2 control-label"> Téléphone : </label>
+            <input id="telephone" name="telephone" type="text" class="col-xs-12 col-sm-6"
+                   placeholder="Téléphone" value="{{ user.telephone }}" />
+        </div>
+        <br/>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-xs-offset-1">
+                <button type="submit" name="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-ok-sign"></span> Enregister </button>
+            </div>
+        </div>
+    </form> <!-- fin du formulaire -->
+
+{% endblock %}
+
+{% block block_scripts %}
+    <script>
+        $(document).ready(function(){
+            $("#form_modification").validate();
+        });
+    </script>
+{% endblock %}
