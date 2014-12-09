@@ -1,5 +1,7 @@
 {% extends 'index.html.twig' %}
 
+{% block titre %} Editer son profile - {{ parent() }}{% endblock %}
+
 {% set user = session.user_courant %}
 
 {% block block_principal %}
@@ -8,14 +10,8 @@
     </div>
 
     <section class="row">
-        {% if erreur is defined %}
-            <div class="row">
-                <div class="col-md-12 col-xs-12 erreur">
-                    {{ erreur }}
-                </div>
-            </div>
-            <br />
-        {% endif %}
+        {% block block_erreur %} {{ parent() }} {% endblock %}
+        <br/>
 
 
         <form id="form_mdp" method="post" class="form-horizontal" role="form">

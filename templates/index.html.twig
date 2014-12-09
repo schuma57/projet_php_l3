@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Les recettes de cocktails</title>
+    <title>{% block titre %} Un monde de cocktails {% endblock %}</title>
     <meta charset="UTF8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.validate.password.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -25,6 +26,16 @@
         {% block block_principal %}
 
         <h1>Un monde de cocktails</h1>
+
+            {% block block_erreur %}
+                {% if erreur is defined %}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-offset-2 col-sm-6 erreur">
+                            {{ erreur|raw }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock %}
 
             <section class="container-fluid" id="section_logo">
                 <div class="row">

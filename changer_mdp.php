@@ -52,11 +52,10 @@
 
                     $url = "profile.php";
                     $message = "
-                        <p>Mot de passe changé avec succès ! Redirection dans <span id=chrono>3</span> secondes</p>
+                        <p>Mot de passe changé avec succès ! Redirection dans <span id=chrono>2</span> secondes</p>
                         <script>
-                        setTimeout(function(){ document.getElementById('chrono').innerHTML = '2';}, 1000 );
-                        setTimeout(function(){ document.getElementById('chrono').innerHTML = '1';}, 2000 );
-                        setTimeout(function(){ document.getElementById('chrono').innerHTML = '0';}, 3000 );
+                        setTimeout(function(){ document.getElementById('chrono').innerHTML = '1';}, 1000 );
+                        setTimeout(function(){ document.getElementById('chrono').innerHTML = '0';}, 2000 );
                         </script>";
 
                     echo $twig->render("message.html.twig",

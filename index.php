@@ -3,7 +3,7 @@
     if( !isset($_SESSION['panier']) )
         $_SESSION['panier'] = array();
     require_once("Donnees.inc.php");
-    include_once("models/user.class.php");
+    require_once("models/user.class.php");
     //==================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
     Twig_Autoloader::register();

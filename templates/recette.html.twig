@@ -1,5 +1,6 @@
 {% extends 'index.html.twig' %}
 
+{% block titre %} Recette - {{ parent() }}{% endblock %}
 
 {% block block_principal %}
     {% set item = recettes[id_recette] %}
@@ -29,7 +30,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-12">
                     <h4> Menu </h4>
-                    <a href="">
+                    <a href="ajouter_favori.php?id={{ id_recette }}">
                         <span class="glyphicon glyphicon-star-empty"></span> Ajouter aux favoris </a>
                     <br/><br/>
                 </div>

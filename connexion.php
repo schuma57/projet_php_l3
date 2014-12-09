@@ -13,6 +13,14 @@
     //=====================================================================//
 
 
+    if( isset($_SESSION['user_courant']) && $_SESSION['user_courant'] != '' )
+    {
+        header("Location: profile.php");
+        exit();
+    }
+    // sinon la page peut s'afficher
+
+
     if( !isset($_POST['submit']) )
     {
         echo $twig->render('connexion.html.twig',

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once("models/user.class.php");
+    require_once("models/user.class.php");
     
     //===========================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
@@ -12,6 +12,7 @@
     ));
     //===========================================================================//
 
+
     if( !isset($_POST['submit']) )
     {
         echo $twig->render('inscription.html.twig',
@@ -20,55 +21,94 @@
     }
     else
     {
+        $erreur = '';
         if( validePseudo() && valideMdp() )
         {
             $users = json_decode( file_get_contents('models/users.json'), true );
-            if(validePseudo() )
+
+            if(!existePseudo($users[$_POST['pseudo']]))
+            {
                 $users[$_POST['pseudo']] = new User;
 
-            if(validePseudo() )     $users[$_POST['pseudo']]->setPseudo( $_POST['pseudo'] );
-            if(valideMdp() )        $users[$_POST['pseudo']]->setMotDePasse( sha1($_POST['motdepasse']) );
-            if(valideNom())         $users[$_POST['pseudo']]->setNom( $_POST['nom'] );
-            if(validePrenom())      $users[$_POST['pseudo']]->setPrenom( $_POST['prenom'] );
-            if(valideSexe())        $users[$_POST['pseudo']]->setSexe($_POST['sexe']);
-            if(valideEmail())       $users[$_POST['pseudo']]->setEmail($_POST['email']);
-            if(valideNaissance())   $users[$_POST['pseudo']]->setNaissance($_POST['naissance']);
-            if(valideAdresse())     $users[$_POST['pseudo']]->setAdresse( $_POST['adresse']);
-            if(valideTelephone())   $users[$_POST['pseudo']]->setTelephone($_POST['telephone']);
+                if(validePseudo() )     $users[$_POST['pseudo']]->setPseudo( $_POST['pseudo'] );
+                if(valideMdp() )        $users[$_POST['pseudo']]->setMotDePasse( sha1($_POST['motdepasse']) );
+                if(valideNom())         $users[$_POST['pseudo']]->setNom( $_POST['nom'] );
+                if(validePrenom())      $users[$_POST['pseudo']]->setPrenom( $_POST['prenom'] );
+                if(valideSexe())        $users[$_POST['pseudo']]->setSexe($_POST['sexe']);
+                if(valideEmail())       $users[$_POST['pseudo']]->setEmail($_POST['email']);
+                if(valideNaissance())   $users[$_POST['pseudo']]->setNaissance($_POST['naissance']);
+                if(valideAdresse())     $users[$_POST['pseudo']]->setAdresse( $_POST['adresse']);
+                if(valideTelephone())   $users[$_POST['pseudo']]->setTelephone($_POST['telephone']);
 
-            file_put_contents('models/users.json', json_encode($users) );
-            $_SESSION['user_courant'] = json_decode(json_encode($users[$_POST['pseudo']]));
+                file_put_contents('models/users.json', json_encode($users) );
+                $_SESSION['user_courant'] = json_decode(json_encode($users[$_POST['pseudo']]));
 
-            //---- redirection vers l'accueil du site
-            header('Location: index.php');
+                //---- redirection vers l'accueil du site
+                header('Location: index.php');
+            }
+            /*else
+            {
+                $erreur = "Ce pseudo est déjà pris.";
+            }*/
         }
-        else
+/*        else
         {
-            $erreur = "Un pseudo et un mot de passe sont requis";
+            $erreur = "Un pseudo et un mot de passe sont requis.";
+        }*/
 
-            echo $twig->render('inscription.html.twig',
-                array('session' => $_SESSION,
-                    'erreur'    => $erreur
-                )
-            );
-        }
-    } //TODO faire tests cote serveur avant inscription
+        echo $twig->render('inscription.html.twig',
+            array('session' => $_SESSION,
+                'erreur'    => $erreur
+            )
+        );
+    }
+    //TODO faire tests cote serveur avant inscription
 
-    
-    function validePseudo()
+
+    function existePseudo($pseudo)  //test si le pseudo est deja utilisé
     {
-        if( isset($_POST['pseudo']) && !empty($_POST['pseudo']) )
+        if( isset($pseudo) )
+        {
+            global $erreur;
+            $erreur .= "Ce pseudo est déjà pris." . "<br>";
             return true;
+        }
         else
             return false;
     }
 
+
+    function validePseudo()
+    {
+        global $erreur;
+        if( isset($_POST['pseudo']) && !empty($_POST['pseudo']) )
+        {
+            if( strlen($_POST['pseudo']) >= 3 )
+                return true;
+            else
+            {
+                $erreur .= "Pseudo inférieur à 3 caractères." . "<br>";
+                return false;
+            }
+        }
+        else
+        {
+            $erreur .= "Pseudo non renseigné." . "<br>";
+            return false;
+        }
+    }
+
+
     function valideMdp()
     {
+        global $erreur;
         if( isset($_POST['motdepasse']) && !empty($_POST['motdepasse']) )
             return true;
         else
+        {
+            $erreur .= "Mot de passe non renseigné." . "<br>";
             return false;
+        }
     }
 
     function valideNom()

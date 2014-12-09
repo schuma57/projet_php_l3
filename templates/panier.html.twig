@@ -1,15 +1,30 @@
 {% extends 'index.html.twig' %}
 
+{% block titre %} Recettes préférées - {{ parent() }}{% endblock %}
 
 {% block block_principal %}
-    <h2><span class="glyphicon glyphicon-star"></span> Mes recettes préférées</h2>
+    <h2><span class="glyphicon glyphicon-star"></span> Mes recettes préférées <span class="badge">{{ listeFavoris|length }}</span></h2>
 
     <div class="well">
-        <ul>
-        {% for fav in session.user_courant.panier %}
-            <li>{{ fav }}</li>
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <th>couple val</th>
+                <th>N°</th>
+                <th>Nom</th>
+                <th>Voir recette</th>
+                <th>Supprimer</th>
+            </thead>
+        {% for key, favori in listeFavoris %}
+            <tr>
+                <td> {{ key }} -> {{ favori }}</td>
+                <td> {{ loop.index }} </td>
+                <td> {{ attribute(recettes, favori).titre }} </td>
+                <td> <a href="recette.php?id={{ favori }}"> <button class="btn btn-primary">
+                            <span class="glyphicon glyphicon-eye-open"></span></button> </a></td>
+                <td> <a href="supprimer_favori.php?id={{ favori }}"> <button class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span></button> </a></td>
+            </tr>
         {% endfor %}
-        </ul>
+        </table>
     </div>
 {% endblock %}
-

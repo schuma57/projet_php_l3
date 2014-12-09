@@ -189,6 +189,15 @@ class User implements JsonSerializable
     }
 
     /**
+     * @return array
+     */
+    public function getPanier()
+    {
+        return $this->panier;
+    }
+
+
+    /**
      * @param $idCocktail
      */
     public function addPanier($idCocktail)
@@ -207,7 +216,7 @@ class User implements JsonSerializable
 
 
     public function jsonSerialize() {
-        return [
+        /*return [
             'pseudo'        => $this->getPseudo(),
             'motDePasse'    => $this->getMotDePasse(),
             'nom'           => $this->getNom(),
@@ -215,8 +224,10 @@ class User implements JsonSerializable
             'email'         => $this->getEmail(),
             'naissance'     => $this->getNaissance(),
             'adresse'       => $this->getAdresse(),
-            'telephone'     => $this->getTelephone()
-        ];
+            'telephone'     => $this->getTelephone(),
+            'panier'        => $this->getPanier()
+        ];*/
+        return get_object_vars($this);
     }
 
 

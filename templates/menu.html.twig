@@ -23,7 +23,7 @@
         
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Recherche">
                 </div>
                 <button type="submit" class="btn btn-default">
                     <span class="glyphicon glyphicon-ok"></span> Rechercher</button>
@@ -55,6 +55,10 @@
                 </li>
                 
                 {% else %}
+                <div class="navbar-text">
+                    <a href="panier.php">Mes favoris</a>
+                </div>
+
                 <li> <a href="connexion.php">
                     <span class="glyphicon glyphicon-log-in"></span> Connexion </a> </li>
                     

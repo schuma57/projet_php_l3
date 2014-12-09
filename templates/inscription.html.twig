@@ -1,24 +1,34 @@
 {% extends 'index.html.twig' %}
 
+{% block titre %} Inscription - {{ parent() }}{% endblock %}
 
 {% block block_principal %}
     
-    <h2> Inscription </h2>
-    <div class="erreur">
-        {% if erreur is defined %}
-            {{ erreur }}
-        {% endif %}
-        <br /><br />
-    </div>
+    <h2 class="text-center"> Inscription </h2>
+
+    {% block block_erreur %} {{ parent() }} {% endblock %}
+    <br/>
 
     <form id="form_inscription" method="post" class="form-horizontal" role="form">
         <div class="form-group">
             <label for="pseudo" class="col-xs-12 col-sm-2 control-label"> Pseudo <span class="exige">*</span> : </label>
             <input id="pseudo" name="pseudo" type="text" class="col-xs-12 col-sm-6" placeholder="Pseudo" />
         </div>
+
         <div class="form-group">
             <label for="motdepasse" class="col-xs-12 col-sm-2 control-label"> Mot de passe <span class="exige">*</span> : </label>
             <input id="motdepasse" name="motdepasse" type="password" class="col-xs-12 col-sm-6" placeholder="Mot de passe" />
+        </div>
+        <div class="form-group">
+            <div class="password-meter col-xs-12 col-sm-offset-2 col-sm-6">
+                <div class="password-meter-message"> </div>
+                <div class="password-meter-bg">
+                    <div class="password-meter-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <hr class="col-xs-12 col-sm-offset-2 col-sm-6"/>
         </div>
         <div class="form-group">
             <label for="nom" class="col-xs-12 col-sm-2 control-label"> Nom : </label>
@@ -46,7 +56,10 @@
         </div>
         <div class="form-group">
             <label for="postale" class="col-xs-12 col-sm-2 control-label"> Adresse postale : </label>
-            <input id="postale" name="postale" type="text" class="col-xs-12 col-sm-6" placeholder="Adresse postale" />
+            <input id="postale" name="postale" type="text" class="col-xs-12 col-sm-1" placeholder="Code postale" onchange=""/>
+            <input id="ville" name="ville" type="text" class="col-xs-12 col-sm-2" placeholder="Ville" />
+            <input id="rue" name="rue" type="text" class="col-xs-12 col-sm-2" placeholder="Rue" />
+            <input id="numero" name="numero" type="text" class="col-xs-12 col-sm-1" placeholder="Num" />
         </div>
         <div class="form-group">
             <label for="telephone" class="col-xs-12 col-sm-2 control-label"> Téléphone : </label>
@@ -64,9 +77,5 @@
 {% endblock %}
 
 {% block block_scripts %}
-    <script>
-        $(document).ready(function(){
-            $("#form_inscription").validate();
-        });
-    </script>
+    <script type="text/javascript" src="js/validationInscription.js"></script>
 {% endblock %}

@@ -1,16 +1,14 @@
 {% extends 'index.html.twig' %}
 
+{% block titre %} Editer son profile - {{ parent() }}{% endblock %}
 
 {% set user = session.user_courant %}
 
 {% block block_principal %}
     <h2> Edition profile {{ user.pseudo|capitalize }} </h2>
-    <div class="erreur">
-        {% if erreur is defined %}
-            {{ erreur }}
-        {% endif %}
-        <br /><br />
-    </div>
+
+    {% block block_erreur %} {{ parent() }} {% endblock %}
+    <br/>
 
     <form id="form_modification" method="post" class="form-horizontal" role="form">
         <div class="form-group">

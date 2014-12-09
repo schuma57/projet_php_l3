@@ -7,6 +7,7 @@
     session_start();
     if( !isset($_SESSION['panier']) )
         $_SESSION['panier'] = array();
+    require_once 'Donnees.inc.php';
     //=====================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
     Twig_Autoloader::register();
@@ -16,9 +17,21 @@
         'cache' => false
     ));
     //=====================================================================//
-    //TODO faire la gestion du panier
+
+
+    if( isset($_SESSION['user_courant']) && $_SESSION['user_courant'] != '' )
+    {
+        $listeFavoris = $_SESSION['user_courant']['panier'];
+    }
+    else
+    {
+        $listeFavoris = $_SESSION['panier'];
+    }
 
     echo $twig->render('panier.html.twig',
-        array('session' => $_SESSION
+        array('session' => $_SESSION,
+            'recettes'  => $Recettes,
+            'listeFavoris' => $listeFavoris,
+            'monService'    => $service
         )
     );
