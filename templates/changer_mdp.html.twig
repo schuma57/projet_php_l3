@@ -24,19 +24,29 @@
             </div>
 
             <div class="form-group">
-                <label for="mdpactuel" class="col-xs-12 col-sm-2 control-label"> Actuel <span class="exige">*</span> : </label>
+                <label for="mdpactuel" class="col-xs-12 col-sm-2 control-label"> Actuel : </label>
                 <input id="mdpactuel" name="mdpactuel" type="password" class="col-xs-12 col-sm-6"
                        placeholder="Mot de passe actuel" />
             </div>
-
+			<div class="form-group">
+				<hr class="col-xs-12 col-sm-offset-2 col-sm-6"/>
+			</div>
+			<div class="form-group">
+				<div class="password-meter col-xs-12 col-sm-offset-2 col-sm-6">
+					<div class="password-meter-message"> </div>
+					<div class="password-meter-bg">
+						<div class="password-meter-bar"></div>
+					</div>
+				</div>
+			</div>
             <div class="form-group">
-                <label for="nouveaumdp" class="col-xs-12 col-sm-2 control-label"> Nouveau <span class="exige">*</span> : </label>
+                <label for="nouveaumdp" class="col-xs-12 col-sm-2 control-label"> Nouveau : </label>
                 <input id="nouveaumdp" name="nouveaumdp" type="password" class="col-xs-12 col-sm-6"
                        placeholder="Nouveau mot de passe" />
             </div>
 
             <div class="form-group">
-                <label for="confNouveau" class="col-xs-12 col-sm-2 control-label"> Confirmez <span class="exige">*</span> : </label>
+                <label for="confNouveau" class="col-xs-12 col-sm-2 control-label"> Confirmez : </label>
                 <input id="confNouveau" name="confNouveau" type="password" class="col-xs-12 col-sm-6"
                        placeholder="Confirmez nouveau mot de passe" />
             </div>
@@ -54,9 +64,5 @@
 
 
 {% block block_scripts %}
-    <script>
-        $(document).ready(function(){
-            $("#form_mdp").validate();
-        });
-    </script>
+    <script type="text/javascript" src="js/validationChgtMdp.js"></script>
 {% endblock %}

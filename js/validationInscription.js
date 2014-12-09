@@ -43,8 +43,15 @@
 						minlength:10,
 						digits:true
 					},
-					postale:{
+					postal:{
+						minlenght:5,
+						digits:true
+					},
+					ville:{
 						string:true
+					},
+					adresse:{
+					
 					}
 				},
 				//Ajout des messages personnalisés. On aurait pu importer les fichiers type localisation fr
@@ -79,6 +86,16 @@
 						required:"Veuillez entrer votre numéro de téléphone",
 						minlength:"Un numéro de téléphone se compose de 10 chiffres",
 						digits:"Format invalide"
+					},
+					postal:{
+						minlenght:"Code postal incomplet",
+						digits:"Le code postal ne peut contenir que des chiffres"
+					},
+					ville:{
+						string:"Ville invalide"
+					},
+					adresse:{
+					
 					}
 				},
 				submitHandler: function(form) {
