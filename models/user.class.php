@@ -33,6 +33,14 @@ class User implements JsonSerializable
     /**
      * @var string
      */
+    private $codePostale;
+    /**
+     * @var string
+     */
+    private $ville;
+    /**
+     * @var string
+     */
     private $adresse;
     /**
      * @var string
@@ -159,11 +167,43 @@ class User implements JsonSerializable
     /**
      * @return string
      */
+    public function getCodePostale()
+    {
+        return $this->codePostale;
+    }
+
+    /**
+     * @param $codePostale
+     */
+    public function setCodePostale($cp)
+    {
+        $this->codePostale = $cp;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    }
+
+    /**
+     * @return string
+     */
     public function getAdresse()
     {
         return $this->adresse;
     }
-
+    
     /**
      * @param $adresse
      */
@@ -231,16 +271,9 @@ class User implements JsonSerializable
     }
 
 
-    public function __construct(/*array $donnees*/)
+    public function __construct()
     {
+        $this->adresse = array('cp' => null , 'ville' => null , 'adresse' => null);
         $this->panier = array();
-        /*$this->pseudo = $donnees['pseudo'];
-        $this->motDePasse = $donnees['motDePasse'];
-        $this->nom = $donnees['nom'];
-        $this->prenom = $donnees['prenom'];
-        $this->email = $donnees['email'];
-        $this->naissance = $donnees['naissance'];
-        $this->adresse = $donnees['adresse'];
-        $this->telephone = $donnees['telephone'];*/
     }
 }

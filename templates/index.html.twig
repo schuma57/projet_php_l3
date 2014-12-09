@@ -31,7 +31,11 @@
                 {% if erreur is defined %}
                     <div class="row">
                         <div class="col-xs-12 col-sm-offset-2 col-sm-6 erreur">
-                            {{ erreur|raw }}
+                            <ul>
+                                {% for e in erreur %}
+                                <li> {{ e }} </li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
                 {% endif %}

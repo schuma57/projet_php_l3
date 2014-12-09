@@ -27,6 +27,14 @@
                    placeholder="Prénom" value="{{ user.prenom }}" />
         </div>
         <div class="form-group">
+            <label class="col-xs-12 col-sm-2 control-label"> Sexe : </label>
+            <div class="col-xs-12 col-sm-6">
+                <input name="sexe" type="radio" value="Homme" /> Homme
+                <input name="sexe" type="radio" value="Femme" /> Femme
+                <input name="sexe" type="radio" value="" /> Ne se prononce pas
+            </div>
+        </div>
+        <div class="form-group">
             <label for="email" class="col-xs-12 col-sm-2 control-label"> Adresse email : </label>
             <input id="email" name="email" type="email" class="col-xs-12 col-sm-6"
                    placeholder="Email" value="{{ user.email }}" />
@@ -38,8 +46,12 @@
         </div>
         <div class="form-group">
             <label for="postale" class="col-xs-12 col-sm-2 control-label"> Adresse postale : </label>
-            <input id="postale" name="postale" type="text" class="col-xs-12 col-sm-6"
-                   placeholder="Adresse postale" value="{{ user.adresse }}" />
+            <input id="postale" name="postale" type="text" class="col-xs-12 col-sm-1"
+                   placeholder="CP" value="{{ user.codePostale }}" />
+            <input id="ville" name="ville" type="text" class="col-xs-12 col-sm-2"
+                   placeholder="Ville" value="{{ user.ville }}" />
+            <input id="adresse" name="adresse" type="text" class="col-xs-12 col-sm-3"
+                   placeholder="Adresse" value="{{ user.adresse }}" />
         </div>
         <div class="form-group">
             <label for="telephone" class="col-xs-12 col-sm-2 control-label"> Téléphone : </label>

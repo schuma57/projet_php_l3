@@ -5,7 +5,7 @@
  */
 
     session_start();
-    //include_once("models/user.class.php");
+    require_once("controle_inscription.php");
 
     //===========================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
@@ -50,3 +50,9 @@
 
         header("Location: profile.php");
     } //TODO faire les tests cote serveur avant enregistrement
+
+
+    function testerErreur()
+    {
+
+    }

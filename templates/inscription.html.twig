@@ -48,7 +48,7 @@
         </div>
         <div class="form-group">
             <label for="email" class="col-xs-12 col-sm-2 control-label"> Adresse email : </label>
-            <input id="email" name="email" type="email" class="col-xs-12 col-sm-6" placeholder="Email" />
+            <input id="email" name="email" type="text" class="col-xs-12 col-sm-6" placeholder="Email" />
         </div>
         <div class="form-group">
             <label for="naissance" class="col-xs-12 col-sm-2 control-label"> Date de naissance : </label>
@@ -56,10 +56,11 @@
         </div>
         <div class="form-group">
             <label for="postale" class="col-xs-12 col-sm-2 control-label"> Adresse postale : </label>
-            <input id="postale" name="postale" type="text" class="col-xs-12 col-sm-1" placeholder="Code postale" onchange=""/>
-            <input id="ville" name="ville" type="text" class="col-xs-12 col-sm-2" placeholder="Ville" />
-            <input id="rue" name="rue" type="text" class="col-xs-12 col-sm-2" placeholder="Rue" />
-            <input id="numero" name="numero" type="text" class="col-xs-12 col-sm-1" placeholder="Num" />
+            <input id="postale" name="postale" type="text" class="col-xs-12 col-sm-1" placeholder="CP"
+                   onchange="getVille(value);" />
+            <input id="ville" name="ville" type="text" class="col-xs-12 col-sm-2" placeholder="Ville"
+                    onchange="getRue();"/>
+            <input id="adresse" name="adresse" type="text" class="col-xs-12 col-sm-3" placeholder="Adresse" />
         </div>
         <div class="form-group">
             <label for="telephone" class="col-xs-12 col-sm-2 control-label"> Téléphone : </label>
@@ -78,4 +79,32 @@
 
 {% block block_scripts %}
     <script type="text/javascript" src="js/validationInscription.js"></script>
+    <script>
+        $( "#ville" ).addClass( "hidden" );
+        $( "#adresse" ).addClass( "hidden" );
+    </script>
+    <script>
+        function getVille(codePostale)
+        {
+            //$.ajaxSetup({ traditional: true });
+
+            //$.getJSON("http://www.cp-ville.com/cpcom.php?jsoncallback=?", { cpcommune: codePostale });
+
+            $( "#ville").removeClass("hidden");
+        }
+
+        function jsoncallback(data)
+        {
+            /*if( $( "#postale").val() == '')
+            {
+                $( "#ville").addClass("hidden");
+            }*/
+        }
+
+        function getRue()
+        {
+            $( "#adresse").removeClass("hidden");
+        }
+
+    </script>
 {% endblock %}
