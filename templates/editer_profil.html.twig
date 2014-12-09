@@ -5,7 +5,7 @@
 {% set user = session.user_courant %}
 
 {% block block_principal %}
-    <h2> Edition profil {{ user.pseudo|capitalize }} </h2>
+    <h2 class="text-center"> Edition profil {{ user.pseudo|capitalize }} </h2>
 
     {% block block_erreur %} {{ parent() }} {% endblock %}
     <br/>
@@ -47,7 +47,7 @@
         <div class="form-group">
             <label for="postal" class="col-xs-12 col-sm-2 control-label"> Adresse postal : </label>
             <input id="postal" name="postal" type="text" class="col-xs-12 col-sm-1"
-                   placeholder="CP" value="{{ user.codePostale }}" />
+                   placeholder="CP" value="{{ user.codePostal }}" />
             <input id="ville" name="ville" type="text" class="col-xs-12 col-sm-2"
                    placeholder="Ville" value="{{ user.ville }}" />
             <input id="adresse" name="adresse" type="text" class="col-xs-12 col-sm-3"

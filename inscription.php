@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once("models/user.class.php");
-    require_once('controle_inscription.php');
+    require_once('services/controle_inscription.php');
     
     //===========================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
