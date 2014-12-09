@@ -25,6 +25,7 @@
     }
     // sinon la page peut s'afficher
 
-    echo $twig->render('profile.html.twig',
+
+    echo $twig->render('profil.html.twig',
         array('session' => $_SESSION)
     );

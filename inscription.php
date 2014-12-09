@@ -23,6 +23,7 @@
     else
     {
         $erreur = array();
+
         if( chercherErreur() )
         {
             $users = json_decode( file_get_contents('models/users.json'), true );
@@ -38,13 +39,13 @@
                 if(valideSexe())        $users[$_POST['pseudo']]->setSexe($_POST['sexe']);
                 if(valideEmail())       $users[$_POST['pseudo']]->setEmail($_POST['email']);
                 if(valideNaissance())   $users[$_POST['pseudo']]->setNaissance($_POST['naissance']);
-                if(validePostale())     $users[$_POST['pseudo']]->setCodePostale( $_POST['postale']);
+                if(validePostal())     $users[$_POST['pseudo']]->setCodePostale( $_POST['postal']);
                 if(valideVille())       $users[$_POST['pseudo']]->setVille( $_POST['ville']);
                 if(valideAdresse())     $users[$_POST['pseudo']]->setAdresse( $_POST['adresse']);
                 if(valideTelephone())   $users[$_POST['pseudo']]->setTelephone($_POST['telephone']);
 
                 file_put_contents('models/users.json', json_encode($users) );
-                $_SESSION['user_courant'] = json_decode(json_encode($users[$_POST['pseudo']]));
+                $_SESSION['user_courant'] = getUserByPseudo($_POST['pseudo']);
 
                 //---- redirection vers l'accueil du site
                 header('Location: index.php');
@@ -58,6 +59,11 @@
         );
     }
 
+    function getUserByPseudo($pseudo)
+    {
+        $liste = json_decode( file_get_contents('models/users.json'), true );
+        return $liste[$pseudo];
+    }
 
     function chercherErreur()
     {
@@ -67,7 +73,7 @@
         validePrenom();
         valideEmail();
         valideNaissance();
-        validePostale();
+        validePostal();
         valideVille();
         valideAdresse();
         valideTelephone();

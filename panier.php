@@ -28,10 +28,10 @@
         $listeFavoris = $_SESSION['panier'];
     }
 
+
     echo $twig->render('panier.html.twig',
         array('session' => $_SESSION,
             'recettes'  => $Recettes,
-            'listeFavoris' => $listeFavoris,
-            'monService'    => $service
+            'listeFavoris' => $listeFavoris
         )
     );

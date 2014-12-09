@@ -33,7 +33,7 @@ class User implements JsonSerializable
     /**
      * @var string
      */
-    private $codePostale;
+    private $codePostal;
     /**
      * @var string
      */
@@ -167,17 +167,17 @@ class User implements JsonSerializable
     /**
      * @return string
      */
-    public function getCodePostale()
+    public function getCodePostal()
     {
-        return $this->codePostale;
+        return $this->codePostal;
     }
 
     /**
-     * @param $codePostale
+     * @param $cp
      */
-    public function setCodePostale($cp)
+    public function setCodePostal($cp)
     {
-        $this->codePostale = $cp;
+        $this->codePostal = $cp;
     }
 
     /**
@@ -251,29 +251,18 @@ class User implements JsonSerializable
      */
     public function __toString()
     {
-        return null;
+        return '' .$this->pseudo . ' : ' . $this->prenom . ' ' . $this->nom;
     }
 
 
-    public function jsonSerialize() {
-        /*return [
-            'pseudo'        => $this->getPseudo(),
-            'motDePasse'    => $this->getMotDePasse(),
-            'nom'           => $this->getNom(),
-            'prenom'        => $this->getPrenom(),
-            'email'         => $this->getEmail(),
-            'naissance'     => $this->getNaissance(),
-            'adresse'       => $this->getAdresse(),
-            'telephone'     => $this->getTelephone(),
-            'panier'        => $this->getPanier()
-        ];*/
+    public function jsonSerialize()
+    {
         return get_object_vars($this);
     }
 
 
     public function __construct()
     {
-        $this->adresse = array('cp' => null , 'ville' => null , 'adresse' => null);
         $this->panier = array();
     }
 }

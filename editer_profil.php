@@ -27,7 +27,7 @@
 
     if( !isset($_POST['submit']) )
     {
-        echo $twig->render('editer_profile.html.twig',
+        echo $twig->render('editer_profil.html.twig',
             array('session' => $_SESSION)
         );
     }
@@ -41,18 +41,26 @@
         $users[$pseudo]['sexe']     =   $_POST['sexe'];
         $users[$pseudo]['email']    =   $_POST['email'];
         $users[$pseudo]['naissance'] =  $_POST['naissance'];
-        $users[$pseudo]['adresse']  =   $_POST['postale'];
+        $users[$pseudo]['codePostal'] = $_POST['postal'];
+        $users[$pseudo]['ville']    =   $_POST['ville'];
+        $users[$pseudo]['adresse']  =   $_POST['adresse'];
         $users[$pseudo]['telephone'] =  $_POST['telephone'];
 
         $_SESSION['user_courant'] = $users[$pseudo];
 
         file_put_contents('models/users.json', json_encode($users));
 
-        header("Location: profile.php");
+        header("Location: profil.php");
     } //TODO faire les tests cote serveur avant enregistrement
 
 
     function testerErreur()
     {
-
+        valideNom();
+        validePrenom();
+        valideEmail();
+        valideNaissance();
+        validePostal();
+        valideVille();
+        valideTelephone();
     }

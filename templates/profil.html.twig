@@ -1,12 +1,12 @@
 {% extends 'index.html.twig' %}
 
-{% block titre %} Profile utilisateur - {{ parent() }}{% endblock %}
+{% block titre %} Profil utilisateur - {{ parent() }}{% endblock %}
 
 {% block block_principal %}
 
 <section class="row">
     <h2 class="text-center"><span class="glyphicon glyphicon-user">
-            </span> Profile de {{ session.user_courant.pseudo|capitalize }} </h2>
+            </span> Profil de {{ session.user_courant.pseudo|capitalize }} </h2>
 
     <div class="well">
         <table class="table table-bordered table-responsive table-striped">
@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td> Adresse </td>
-                <td> {{ session.user_courant.adresse }} {{ session.user_courant.codePostale }} {{ session.user_courant.ville }}</td>
+                <td> {{ session.user_courant.adresse }} {{ session.user_courant.codePostal }} {{ session.user_courant.ville }}</td>
             </tr>
             <tr>
                 <td> Email </td>
@@ -43,7 +43,7 @@
                 <td> {{ session.user_courant.telephone }} </td>
             </tr>
         </table>
-        <a href="editer_profile.php"><span class="glyphicon glyphicon-pencil"></span> Editer son profile</a>
+        <a href="editer_profil.php"><span class="glyphicon glyphicon-pencil"></span> Editer son profil</a>
     </div>
 
 </section>

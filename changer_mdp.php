@@ -35,22 +35,23 @@
     }
     else
     {
-        if( isset($_POST['mdpactuel']) && !empty($_POST['mdpactuel']) && $_POST['mdpactuel'] != ''
-            && isset($_POST['nouveaumdp']) && !empty($_POST['nouveaumdp']) && $_POST['nouveaumdp'] != ''
-            && isset($_POST['confNouveau']) && !empty($_POST['confNouveau']) && $_POST['confNouveau'])
+        $erreur = array();
+
+        if( verifierTout() )
         {
             $pseudo = $_SESSION['user_courant']['pseudo'];
             $users = json_decode( file_get_contents('models/users.json'), true );
+
             if( $users[$pseudo]['motDePasse'] == sha1($_POST['mdpactuel'])  )
             {
-                if( $_POST['nouveaumdp'] == $_POST['confNouveau'] )
+                if( testerEquivalence() )
                 {
                     $users[$pseudo]['motDePasse'] = sha1($_POST['nouveaumdp']);
                     $_SESSION['user_courant'] = $users[$pseudo];
 
                     file_put_contents('models/users.json', json_encode($users));
 
-                    $url = "profile.php";
+                    $url = "profil.php";
                     $message = "
                         <p>Mot de passe changé avec succès ! Redirection dans <span id=chrono>2</span> secondes</p>
                         <script>
@@ -66,19 +67,7 @@
                     );
                     return;
                 }
-                else
-                {
-                    $erreur = "Confirmez votre nouveau mot de passe avec la même valeur.";
-                }
             }
-            else
-            {
-                $erreur = "Le mot de passe saisit est incorrect.";
-            }
-        }
-        else
-        {
-            $erreur = "Saisir tous les champs requis.";
         }
 
         echo $twig->render('changer_mdp.html.twig',
@@ -86,4 +75,43 @@
                 'erreur' => $erreur
             )
         );
+    }
+
+
+    function verifierTout()
+    {
+        global $erreur;
+        if( isset($_POST['mdpactuel']) && !empty($_POST['mdpactuel']) && $_POST['mdpactuel'] != ''
+                && isset($_POST['nouveaumdp']) && !empty($_POST['nouveaumdp']) && $_POST['nouveaumdp'] != ''
+                && isset($_POST['confNouveau']) && !empty($_POST['confNouveau']) && $_POST['confNouveau'] != '' )
+            return true;
+        else
+        {
+            $erreur[] = "Saisir tous les champs requis.";
+            return false;
+        }
+    }
+
+    function testerEquivalence()
+    {
+        global $erreur;
+        if($_POST['nouveaumdp'] == $_POST['confNouveau'])
+            return true;
+        else
+        {
+            $erreur[] = "Confirmez votre nouveau mot de passe avec la même valeur.";
+            return false;
+        }
+    }
+
+    function testerMotDePasse( $motEnregistre)
+    {
+        global $erreur;
+        if( $motEnregistre == sha1($_POST['mdpactuel'])  )
+            return true;
+        else
+        {
+            $erreur[] = "Le mot de passe saisit est incorrect.";
+            return false;
+        }
     }

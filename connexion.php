@@ -15,7 +15,7 @@
 
     if( isset($_SESSION['user_courant']) && $_SESSION['user_courant'] != '' )
     {
-        header("Location: profile.php");
+        header("Location: profil.php");
         exit();
     }
     // sinon la page peut s'afficher
@@ -30,6 +30,8 @@
     }
     else
     {
+        $erreur = array();
+
         if(isset($_POST['pseudo']) && $_POST['pseudo'] != ''
                 && isset($_POST['motdepasse']) && $_POST['motdepasse'] != '' )
         {
@@ -44,13 +46,13 @@
                     return;
                 }
                 else
-                    $erreur = "Cette combinaison pseudo - mot de passe est incorrect.";
+                    $erreur[] = "Cette combinaison pseudo - mot de passe est incorrect.";
             }
             else
-                $erreur = "Cette combinaison pseudo - mot de passe est incorrect.";
+                $erreur[] = "Cette combinaison pseudo - mot de passe est incorrect.";
         }
         else
-            $erreur = "Vous devez renseigner votre pseudo et votre mot de passe.";
+            $erreur[] = "Vous devez renseigner votre pseudo et votre mot de passe.";
 
         echo $twig->render('connexion.html.twig',
             array('session' => $_SESSION,

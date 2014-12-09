@@ -165,16 +165,16 @@
             return false;
     }
 
-    function validePostale()
+    function validePostal()
     {
         global $erreur;
-        if( isset($_POST['postale']) && $_POST['postale'] != '' )
+        if( isset($_POST['postal']) && $_POST['postal'] != '' )
         {
-            if( preg_match("/^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/", $_POST['postale']) )
+            if( preg_match("/^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/", $_POST['postal']) )
                 return true;
             else
             {
-                $erreur[] = "Code postale non valide, ex : 75000";
+                $erreur[] = "Code postal non valide, ex : 75000";
                 return false;
             }
         }
