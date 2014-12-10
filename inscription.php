@@ -32,17 +32,17 @@
             {
                 $users[$_POST['pseudo']] = new User;
 
-                if(testerPseudo() )     $users[$_POST['pseudo']]->setPseudo( $_POST['pseudo'] );
-                if(testerMdp() )        $users[$_POST['pseudo']]->setMotDePasse( sha1($_POST['motdepasse']) );
-                if(valideNom())         $users[$_POST['pseudo']]->setNom( $_POST['nom'] );
-                if(validePrenom())      $users[$_POST['pseudo']]->setPrenom( $_POST['prenom'] );
-                if(valideSexe())        $users[$_POST['pseudo']]->setSexe($_POST['sexe']);
-                if(valideEmail())       $users[$_POST['pseudo']]->setEmail($_POST['email']);
-                if(valideNaissance())   $users[$_POST['pseudo']]->setNaissance($_POST['naissance']);
-                if(validePostal())     $users[$_POST['pseudo']]->setCodePostale( $_POST['postal']);
-                if(valideVille())       $users[$_POST['pseudo']]->setVille( $_POST['ville']);
-                if(valideAdresse())     $users[$_POST['pseudo']]->setAdresse( $_POST['adresse']);
-                if(valideTelephone())   $users[$_POST['pseudo']]->setTelephone($_POST['telephone']);
+                if(isset($_POST['pseudo']))      $users[$_POST['pseudo']]->setPseudo( trim($_POST['pseudo']) );
+                if(isset($_POST['motdepasse']))  $users[$_POST['pseudo']]->setMotDePasse( sha1(trim($_POST['motdepasse'])) );
+                if(isset($_POST['nom']))         $users[$_POST['pseudo']]->setNom( trim($_POST['nom']) );
+                if(isset($_POST['prenom']))      $users[$_POST['pseudo']]->setPrenom( trim($_POST['prenom']) );
+                if(isset($_POST['sexe']))        $users[$_POST['pseudo']]->setSexe($_POST['sexe']);
+                if(isset($_POST['email']))       $users[$_POST['pseudo']]->setEmail( trim($_POST['email']));
+                if(isset($_POST['naissance']))   $users[$_POST['pseudo']]->setNaissance(str_replace(array(' ' , '-', '\\'), '/', $_POST['naissance']) );
+                if(isset($_POST['postal']))      $users[$_POST['pseudo']]->setCodePostale( trim($_POST['postal']));
+                if(isset($_POST['ville']))       $users[$_POST['pseudo']]->setVille( trim($_POST['ville']));
+                if(isset($_POST['adresse']))     $users[$_POST['pseudo']]->setAdresse( trim($_POST['adresse']));
+                if(isset($_POST['telephone']))   $users[$_POST['pseudo']]->setTelephone( trim($_POST['telephone']));
 
                 file_put_contents('models/users.json', json_encode($users) );
                 $_SESSION['user_courant'] = getUserByPseudo($_POST['pseudo']);
@@ -67,18 +67,19 @@
 
     function chercherErreur()
     {
-        validePseudo();
-        valideMdp();
-        valideNom();
-        validePrenom();
-        valideEmail();
-        valideNaissance();
-        validePostal();
-        valideVille();
-        valideAdresse();
-        valideTelephone();
+        global $erreur;
+        validePseudo( trim($_POST['pseudo']));
+        valideMdp( trim($_POST['motdepasse']));
+        valideNom( trim($_POST['nom']));
+        validePrenom( trim($_POST['prenom']));
+        valideEmail( trim($_POST['email']));
+        valideNaissance( trim($_POST['naissance']));
+        validePostal( trim($_POST['postal']));
+        valideVille( trim($_POST['ville']));
+        valideAdresse( trim($_POST['adresse']));
+        valideTelephone( trim($_POST['telephone']));
 
-        return testerPseudo() && testerMdp();
+        return ( count($erreur) <= 0 );
     }
 
 ?>

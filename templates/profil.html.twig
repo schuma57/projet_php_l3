@@ -8,38 +8,39 @@
     <h2 class="text-center"><span class="glyphicon glyphicon-user">
             </span> Profil de {{ session.user_courant.pseudo|capitalize }} </h2>
 
+    <br/>
     <div class="well">
         <table class="table table-bordered table-responsive table-striped">
             <tr>
-                <td> Pseudo </td>
+                <th> Pseudo </th>
                 <td> {{ session.user_courant.pseudo }} </td>
             </tr>
             <tr>
-                <td> Nom </td>
+                <th> Nom </th>
                 <td> {{ session.user_courant.nom }} </td>
             </tr>
             <tr>
-                <td> Prénom </td>
+                <th> Prénom </th>
                 <td> {{ session.user_courant.prenom }} </td>
             </tr>
             <tr>
-                <td> Sexe </td>
+                <th> Sexe </th>
                 <td> {{ session.user_courant.sexe }} </td>
             </tr>
             <tr>
-                <td> Date de naissance </td>
+                <th> Date de naissance </th>
                 <td> {{ session.user_courant.naissance }} </td>
             </tr>
             <tr>
-                <td> Adresse </td>
+                <th> Adresse </th>
                 <td> {{ session.user_courant.adresse }} {{ session.user_courant.codePostal }} {{ session.user_courant.ville }}</td>
             </tr>
             <tr>
-                <td> Email </td>
+                <th> Email </th>
                 <td> {{ session.user_courant.email }} </td>
             </tr>
             <tr>
-                <td> Telephone </td>
+                <th> Telephone </th>
                 <td> {{ session.user_courant.telephone }} </td>
             </tr>
         </table>

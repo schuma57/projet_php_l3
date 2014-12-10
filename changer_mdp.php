@@ -42,7 +42,7 @@
             $pseudo = $_SESSION['user_courant']['pseudo'];
             $users = json_decode( file_get_contents('models/users.json'), true );
 
-            if( $users[$pseudo]['motDePasse'] == sha1($_POST['mdpactuel'])  )
+            if( testerMotDePasse($users[$pseudo]['motDePasse'])  )
             {
                 if( testerEquivalence() )
                 {
@@ -84,10 +84,12 @@
         if( isset($_POST['mdpactuel']) && !empty($_POST['mdpactuel']) && $_POST['mdpactuel'] != ''
                 && isset($_POST['nouveaumdp']) && !empty($_POST['nouveaumdp']) && $_POST['nouveaumdp'] != ''
                 && isset($_POST['confNouveau']) && !empty($_POST['confNouveau']) && $_POST['confNouveau'] != '' )
+        {
             return true;
+        }
         else
         {
-            $erreur[] = "Saisir tous les champs requis.";
+            $erreur[] = "Saisir tous les champs.";
             return false;
         }
     }
@@ -96,7 +98,7 @@
     {
         global $erreur;
         if($_POST['nouveaumdp'] == $_POST['confNouveau'])
-            return true;
+            return valideMdp();
         else
         {
             $erreur[] = "Confirmez votre nouveau mot de passe avec la même valeur.";
@@ -111,7 +113,20 @@
             return true;
         else
         {
-            $erreur[] = "Le mot de passe saisit est incorrect.";
+            $erreur[] = "Le mot de passe saisi est incorrect.";
+            return false;
+        }
+    }
+
+    function valideMdp()
+    {
+        global $erreur;
+
+        if( strlen($_POST['motdepasse']) >= 3 )
+            return true;
+        else
+        {
+            $erreur[] = "Mot de passe inférieur à 3 caractères, trop faible.";
             return false;
         }
     }

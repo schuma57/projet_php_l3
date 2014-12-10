@@ -32,7 +32,7 @@
                         {% for un in hierarchie.Aliment['sous-categorie'] %}
                             <option {% if get.niveau1 == un %} selected {% endif %} value="{{ un }}">{{ un }}</option>
                         {% endfor %}
-                    </select> {#TODO faire cette partie en Ajax#}
+                    </select>
 
                     {% for j in 2..8 %}
                         {% if (attribute(get, "niveau"~(j-1)) is defined)

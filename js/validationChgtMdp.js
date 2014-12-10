@@ -1,14 +1,12 @@
         $(document).ready(function(){
-				var validator2 = jQuery("#form_mdp").validate({
+				var validator = jQuery("#form_mdp").validate({
 				// Creation de nos regles pour la validation du formulaire "form_inscription"
 				rules: {
 					nouveaumdp:{
-						minlength:2
-						//password:"#pseudo"
+                        passwordCustom:"#pseudo"
 					},
 					confNouveau:{
-						minlength:2
-						//equalTo:"#nouveaumdp"
+						equalTo:"#nouveaumdp"
 					}
 				},
 				// Ajout des messages personnalisés. On aurait pu importer les fichiers type localisation fr
@@ -95,7 +93,7 @@
 				"strong": "Robuste"
 			}
 			
-			$.validator.addMethod("password", function(value, element, usernameField) {
+			$.validator.addMethod("passwordCustom", function(value, element, usernameField) {
 				var password = element.value,
 					username = $(typeof usernameField != "boolean" ? usernameField : []);
 				var rating = $.validator.passwordRating(password, username.val());

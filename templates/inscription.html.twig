@@ -19,7 +19,7 @@
             <label for="motdepasse" class="col-xs-12 col-sm-2 control-label"> Mot de passe <span class="exige">*</span> : </label>
             <input id="motdepasse" name="motdepasse" type="password" class="col-xs-12 col-sm-6" placeholder="Mot de passe" />
         </div>
-        <div class="form-group">
+        <div id="mesureMot" class="form-group hidden">
             <div class="password-meter col-xs-12 col-sm-offset-2 col-sm-6">
                 <div class="password-meter-message"> </div>
                 <div class="password-meter-bg">
@@ -56,10 +56,10 @@
         </div>
         <div class="form-group">
             <label for="postal" class="col-xs-12 col-sm-2 control-label"> Adresse postale : </label>
-            <input id="postal" name="postal" type="text" class="col-xs-12 col-sm-1" placeholder="CP"
-                   onchange="getVille(value);" />
-            <input id="ville" name="ville" type="text" class="col-xs-12 col-sm-2" placeholder="Ville"
-                    onchange="getRue();"/>
+            <input id="postal" name="postal" type="text" class="col-xs-12 col-sm-1"
+                   placeholder="CP" />
+            <input id="ville" name="ville" type="text" class="col-xs-12 col-sm-2"
+                   placeholder="Ville" />
             <input id="adresse" name="adresse" type="text" class="col-xs-12 col-sm-3" placeholder="Adresse" />
         </div>
         <div class="form-group">
@@ -80,31 +80,42 @@
 {% block block_scripts %}
     <script type="text/javascript" src="js/validationInscription.js"></script>
     <script>
-        $( "#ville" ).addClass( "hidden" );
-        $( "#adresse" ).addClass( "hidden" );
+        $("#ville").addClass("hidden");
+        $("#adresse").addClass("hidden");
     </script>
     <script>
-        function getVille(codePostal)
+        $("#motdepasse").focus( function(){
+            $("#mesureMot").removeClass("hidden");
+        });
+
+        $("#postal").blur( function()
         {
-            //$.ajaxSetup({ traditional: true });
+            $.ajax({
+                type: 'GET',
+                url: "http://www.cp-ville.com/cpcom.php",
+                data: "cpcommune=" +$("#postal").val(),
+                dataType: 'json',
+                success: function(data, statut)
+                {
+                    alert("recu " +data +" " +statut);
+                }
+            });
 
-            //$.getJSON("http://www.cp-ville.com/cpcom.php?jsoncallback=?", { cpcommune: codePostal });
-
-            $( "#ville").removeClass("hidden");
-        }
-
-        function jsoncallback(data)
-        {
-            /*if( $( "#postal").val() == '')
+            if( $("#ville").hasClass("hidden") )
             {
-                $( "#ville").addClass("hidden");
-            }*/
-        }
+                $("#ville").removeClass("hidden");
+                $("#ville").focus();
+            }
+        });
 
-        function getRue()
+        $("#ville").blur( function()
         {
-            $( "#adresse").removeClass("hidden");
-        }
+            if( $("#adresse").hasClass("hidden") )
+            {
+                $("#adresse").removeClass("hidden");
+                $("#adresse").focus();
+            }
+        });
 
     </script>
 {% endblock %}

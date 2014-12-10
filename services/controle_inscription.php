@@ -4,9 +4,10 @@
  * Time: 13:58
  */
 
+
     function existePseudo($pseudo)  //test si le pseudo est deja utilisé
     {
-        if( isset($pseudo) )
+        if( isset($pseudo) && !empty($pseudo) )
         {
             global $erreur;
             $erreur[] = "Ce pseudo est déjà pris.";
@@ -16,107 +17,50 @@
             return false;
     }
 
-
-    function validePseudo()
+    function validePseudo($pseudo)
     {
         global $erreur;
-        if( isset($_POST['pseudo']) && !empty($_POST['pseudo']) )
+        if( isset($pseudo) && !empty($pseudo) )
         {
-            if( strlen($_POST['pseudo']) >= 3 )
-                return true;
-            else
-            {
+            if( !strlen($pseudo) >= 3 )
                 $erreur[] = "Pseudo inférieur à 3 caractères.";
-                return false;
-            }
         }
         else
-        {
             $erreur[] = "Pseudo non renseigné.";
-            return false;
-        }
-    }
-
-    function testerPseudo()
-    {
-        if( isset($_POST['pseudo']) && !empty($_POST['pseudo']) )
-        {
-            if( strlen($_POST['pseudo']) >= 3 )
-                return true;
-            else
-                return false;
-        }
-        else
-            return false;
     }
 
 
-    function valideMdp()
+    function valideMdp($mdp)
     {
         global $erreur;
-        if( isset($_POST['motdepasse']) && !empty($_POST['motdepasse']) )
+        if( isset($mdp) && !empty($mdp) )
         {
-            if( strlen($_POST['motdepasse']) >= 3 )
-                return true;
-            else
-            {
+            if( !strlen($mdp) >= 3 )
                 $erreur[] = "Mot de passe inférieur à 3 caractères, trop faible.";
-                return false;
-            }
         }
         else
-        {
             $erreur[] = "Mot de passe non renseigné.";
-            return false;
-        }
-    }
-
-    function testerMdp()
-    {
-        if( isset($_POST['motdepasse']) && !empty($_POST['motdepasse']) )
-        {
-            if( strlen($_POST['motdepasse']) >= 3 )
-                return true;
-            else
-                return false;
-        }
-        else
-            return false;
     }
 
 
-    function valideNom()
+    function valideNom($nom)
     {
         global $erreur;
-        if( isset($_POST['nom']) && $_POST['nom'] != '' && $_POST['nom'] != null )
+        if( isset($nom) && $nom != '' && $nom != null )
         {
-            if( ctype_alpha($_POST['nom']) )
-                return true;
-            else
-            {
+            if( !ctype_alpha($nom) )
                 $erreur[] = "Nom doit contenir que des lettres, ex : César";
-                return false;
-            }
         }
-        else
-            return false;
     }
 
-    function validePrenom()
+    function validePrenom($prenom)
     {
         global $erreur;
-        if( isset($_POST['prenom']) && $_POST['prenom'] != '' && $_POST['prenom'] != null )
+        if( isset($prenom) && $prenom != '' && $prenom != null )
         {
-            if( ctype_alpha($_POST['prenom']) )
-                return true;
-            else
-            {
+            if( !ctype_alpha($prenom) )
                 $erreur[] = "Prenom doit contenir que des lettres, ex : Jules";
-                return false;
-            }
         }
-        else
-            return false;
     }
 
     function valideSexe()
@@ -127,99 +71,64 @@
             return false;
     }
 
-    function valideEmail()
+    function valideEmail($email)
     {
         global $erreur;
-        if( isset($_POST['email']) && $_POST['email'] != '' && $_POST['email'] != null )
+        if( isset($email) && $email != '' && $email != null )
         {
-            if (preg_match("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/", $_POST['email']))
-                return true;
-            else
-            {
+            if( !preg_match("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/", $email))
                 $erreur[] = "Email non valide, ex : mon.adresse@email.com";
-                return false;
-            }
         }
-        else
-            return false;
     }
 
-    function valideNaissance()
+    function valideNaissance($date)
     {
         global $erreur;
-        if( isset($_POST['naissance']) && $_POST['naissance'] != '' && $_POST['naissance'] != null )
+        if( isset($date) && $date != '' && $date != null )
         {
-            if( preg_match(
-                "/^(((0[1-9]|[12][0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$/" ,
-                    $_POST['naissance']))
-                return true;
-            else
-            {
+            $modifs = str_replace(array(' ' , '-', '\\'), '/', $date);
+            list($jour, $mois, $annee)=explode("/", $modifs);
+
+            if( !checkdate($mois, $jour, $annee) )
                 $erreur[] = "Date non valide, ex : 01/01/2000";
-                return false;
-            }
         }
-        else
-            return false;
     }
 
-    function validePostal()
+    function validePostal($code)
     {
         global $erreur;
-        if( isset($_POST['postal']) && $_POST['postal'] != '' )
+        if( isset($code) && $code != '' )
         {
-            if( preg_match("/^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/", $_POST['postal']) )
-                return true;
-            else
-            {
+            if( !preg_match("/^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/", $code ))
                 $erreur[] = "Code postal non valide, ex : 75000";
-                return false;
-            }
         }
-        else
-            return false;
-
     }
 
-    function valideVille()
+    function valideVille($ville)
     {
         global $erreur;
-        if( isset($_POST['ville']) && $_POST['ville'] != '' )
+        if( isset($ville) && $ville != '' )
         {
-            if( ctype_alpha($_POST['ville']) && strlen($_POST['ville']) > 1 )
-                return true;
-            else
-            {
+            if( !ctype_alpha($ville) && strlen($ville) > 1 )
                 $erreur[] = "Ville non valide, ex : Paris";
-                return false;
-            }
         }
-        else
-            return false;
     }
 
-    function valideAdresse()
+    function valideAdresse($adresse)
     {
         global $erreur;
-        if( isset($_POST['adresse']) && $_POST['adresse'] != '' )
+        if( isset($adresse) && $adresse != '' )
             return true;
         else
             return false;
     }
 
-    function valideTelephone()
+    function valideTelephone($tel)
     {
         global $erreur;
-        if( isset($_POST['telephone']) && $_POST['telephone'] != '' && $_POST['telephone'] != null )
+        if( isset($tel) && $tel != '' && $tel != null )
         {
-            if(preg_match("`^0[0-9]([-. ]?\d{2}){4}[-. ]?$`", $_POST['telephone']))
-                return true;
-            else
-            {
+            if( !preg_match("`^0[0-9]([-. ]?\d{2}){4}[-. ]?$`", $tel ))
                 $erreur[] = "Numéro de téléphone non valide, ex : 0123456789";
-                return false;
-            }
         }
-        else
-            return false;
     }

@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<hr class="col-xs-12 col-sm-offset-2 col-sm-6"/>
 			</div>
-			<div class="form-group">
+			<div id="mesureMdp" class="form-group hidden">
 				<div class="password-meter col-xs-12 col-sm-offset-2 col-sm-6">
 					<div class="password-meter-message"> </div>
 					<div class="password-meter-bg">
@@ -65,4 +65,9 @@
 
 {% block block_scripts %}
     <script type="text/javascript" src="js/validationChgtMdp.js"></script>
+    <script>
+        $("#nouveaumdp").focus( function(){
+            $("#mesureMdp").removeClass("hidden");
+        });
+    </script>
 {% endblock %}
