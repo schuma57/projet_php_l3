@@ -5,23 +5,32 @@
 {% block block_principal %}
     {% set item = recettes[id_recette] %}
 
-    <h2> Recette : {{ item.titre }} </h2>
+    <div class="panel">
+        <h2> Recette : {{ item.titre }} </h2>
+    </div>
 
     <section class="row">
         <div class="col-md-8">
             <div class="row">
-                <div class="col-xs-12">
-                    <h3> Ingrédients </h3>
-                    <ul>
-                        <li>
-                            {{ item.ingredients|replace({'|':'</li><li>'})|raw }}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> Ingrédients </h3>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            {{ item.ingredients|replace({'|':'</li><li class="list-group-item">'})|raw }}
                         </li>
                     </ul>
                 </div>
 
-                <div class="col-xs-12">
-                    <h3> Préparation </h3>
-                    {{ item.preparation }}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> Préparation </h3>
+                    </div>
+                    <div class="panel-body">
+                        {{ item.preparation }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,18 +40,19 @@
                 <div class="visible-xs col-xs-12"> <hr/> </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-12">
-                    <h4> Menu </h4>
-                    <a href="ajouter_favori.php?id={{ id_recette }}">
-                        <span class="glyphicon glyphicon-star-empty"></span> Ajouter aux favoris </a>
-                    <br/><br/>
-                </div>
-                <div class="col-xs-12 col-md-12">
-                    {% if imageExiste %}
-                        <img class="img-responsive" src="Photos/{{ item.titre|replace({' ': '_'}) }}.jpg" alt="image du cocktail">
-                    {% else %}
-                        <img class="img-responsive" src="img/cocktail_icone.jpg" alt="icone cocktail">
-                    {% endif %}
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <a href="ajouter_favori.php?id={{ id_recette }}">
+                            <span class="glyphicon glyphicon-star-empty"></span> Ajouter aux favoris </a>
+                    </div>
+                    <div class="panel-body">
+                        {% if imageExiste %}
+                            <img class="img-responsive" src="Photos/{{ item.titre|replace({' ': '_'}) }}.jpg"
+                                 alt="image du cocktail" />
+                        {% else %}
+                            <img class="img-responsive" src="img/cocktail_icone.jpg" alt="icone cocktail" />
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

@@ -20,6 +20,7 @@ html
 {
     height: 15em;
     border: solid black 1px;
+    border-radius: 5px;
     padding: 5px;
     text-align: center;
     font-size: 1.2em;
