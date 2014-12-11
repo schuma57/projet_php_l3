@@ -27,9 +27,9 @@
     <div clas="row">
         <div class="col-md-3 col-xs-12"> {#---- les huit select pour filtrer les cocktails ----#}
 
-            <form method="post" action="#" name="formulaire">
-                <div class="form-group">
-                    <select name="niveau1" class="selectpicker">
+            <form method="post" name="formulaire">
+                <div class="form-group row">
+                    <select name="niveau1" class="selectpicker col-xs-12 col-sm-12">
                         {% for un in hierarchie.Aliment['sous-categorie'] %}
                             <option {% if get.niveau1 == un %} selected {% endif %} value="{{ un }}">{{ un }}</option>
                         {% endfor %}
@@ -38,7 +38,7 @@
                     {% for j in 2..8 %}
                         {% if (attribute(get, "niveau"~(j-1)) is defined)
                                 and (hierarchie[attribute(get, "niveau"~(j-1))]['sous-categorie'] is defined) %}
-                            <select name="niveau{{ j }}" class="selectpicker">
+                            <select name="niveau{{ j }}" class="selectpicker col-xs-12 col-sm-12">
                                 {% for deux in hierarchie[attribute(get, "niveau"~(j-1))]['sous-categorie'] %}
                                     <option {% if attribute(get, "niveau"~j) == deux %} selected {% endif %}
                                             value="{{ deux }}">{{ deux }}</option>
@@ -46,12 +46,15 @@
                             </select>
                         {% endif %}
                     {% endfor %}
-
                 </div>
-                <input type="submit" name="submit" value="Envoyer" class="btn btn-primary" />
+                <div class="form-group row">
+                    <div class="col-md-12">
+                    <input type="submit" name="submit" value="Envoyer" class="btn btn-primary col-xs-12" />
+                    </div>
+                </div>
             </form>
-
         </div>
+
 
         {# les vignettes avec les cocktails #}
         <div class="col-md-9 col-xs-12">
@@ -76,7 +79,6 @@
     </div>
 
     <div class="col-md-12 col-xs-12 text-center paginator btn-group">
-
     </div>
 </section>
 
@@ -85,29 +87,8 @@
 
 {% block block_scripts %}
     <script>
-        $.expr[":"].contains = $.expr.createPseudo(function( text ) {
-            return function( elem ) {
-                return $(elem).text().toLowerCase().indexOf( text.toLowerCase() ) >= 0;
-            };
-        });
-
         $(document).ready(function() {
             pagination(24,'#super .dedans','.paginator',2);
         });
-
-        /*$(document).ready(function () {
-            $('#recherche').change(function () {
-                var input_content = $.trim($('#recherche').val());
-                if (!input_content)
-                {
-                    $('.dedans').show();
-                }
-                else
-                {
-                    //$(".dedans:contains('" + input_content  + "')").show().hide();
-                    $('.dedans').show().not(':contains(' + input_content  + ')').hide();
-                }
-            });
-        });*/
     </script>
 {% endblock %}
