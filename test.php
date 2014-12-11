@@ -12,14 +12,15 @@
     ));
     //==============================================================//
 
-    $user = new User;
-    $user->setPseudo("bob");
-    $user->setNom("bob");
+    //$fichier = file_get_contents("models/villes_france.txt");
+
+    //$tab = explode('\n' , $fichier);
+
+    //file_put_contents('models/villes.json', $tab);
 
     echo $twig->render('test.html.twig',
         array('recettes' => $Recettes,
-            'hierarchie' => $Hierarchie,
-            'user' => $user
+            'hierarchie' => $Hierarchie
         )
     );
 

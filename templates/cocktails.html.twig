@@ -65,9 +65,9 @@
                     <a href="recette.php?id={{ key }}">
                         <div class="cocktail-in">
 
-                            <div class="col-xs-12">
-                                {{ re.titre }}
-                            </div>
+                            <span class="titre_cocktail">
+                                {{ re.titre|slice(0, 60) }}
+                            </span>
 
                         </div>
                     </a>

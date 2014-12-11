@@ -47,10 +47,10 @@
                     </div>
                     <div class="panel-body">
                         {% if imageExiste %}
-                            <img class="img-responsive" src="Photos/{{ item.titre|replace({' ': '_'}) }}.jpg"
+                            <img class="img-responsive img_ckt" src="Photos/{{ item.titre|replace({' ': '_'}) }}.jpg"
                                  alt="image du cocktail" />
                         {% else %}
-                            <img class="img-responsive" src="img/cocktail_icone.jpg" alt="icone cocktail" />
+                            <img class="img-responsive img_ckt" src="img/cocktail_icone.jpg" alt="icone cocktail" />
                         {% endif %}
                     </div>
                 </div>

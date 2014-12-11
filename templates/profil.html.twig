@@ -15,35 +15,37 @@
         <table class="table table-bordered table-responsive table-striped">
             <tr>
                 <th> Pseudo </th>
-                <td> {{ session.user_courant.pseudo }} </td>
+                <td colspan="3"> {{ session.user_courant.pseudo }} </td>
             </tr>
             <tr>
                 <th> Nom </th>
-                <td> {{ session.user_courant.nom }} </td>
+                <td colspan="3"> {{ session.user_courant.nom|upper }} </td>
             </tr>
             <tr>
                 <th> Prénom </th>
-                <td> {{ session.user_courant.prenom }} </td>
+                <td colspan="3"> {{ session.user_courant.prenom|capitalize }} </td>
             </tr>
             <tr>
                 <th> Sexe </th>
-                <td> {{ session.user_courant.sexe }} </td>
+                <td colspan="3"> {{ session.user_courant.sexe }} </td>
             </tr>
             <tr>
                 <th> Date de naissance </th>
-                <td> {{ session.user_courant.naissance }} </td>
-            </tr>
-            <tr>
-                <th> Adresse </th>
-                <td> {{ session.user_courant.adresse }} {{ session.user_courant.codePostal }} {{ session.user_courant.ville }}</td>
+                <td colspan="3"> {{ session.user_courant.naissance }} </td>
             </tr>
             <tr>
                 <th> Email </th>
-                <td> {{ session.user_courant.email }} </td>
+                <td colspan="3"> {{ session.user_courant.email }} </td>
+            </tr>
+            <tr>
+                <th> Adresse </th>
+                <td> {{ session.user_courant.adresse }} </td>
+                <td> {{ session.user_courant.codePostal }} </td>
+                <td> {{ session.user_courant.ville|capitalize }} </td>
             </tr>
             <tr>
                 <th> Telephone </th>
-                <td> {{ session.user_courant.telephone }} </td>
+                <td colspan="3"> {{ session.user_courant.telephone }} </td>
             </tr>
         </table>
         <a href="editer_profil.php"><span class="glyphicon glyphicon-pencil"></span> Editer son profil</a>

@@ -21,10 +21,20 @@ html
     height: 15em;
     border: solid black 1px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 2% 2% 2% 2%;
     text-align: center;
     font-size: 1.2em;
+    line-height:12em;
     color: red;
+
+    -o-text-overflow: ellipsis; /* pour Opera 9 */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
 }
 
 .cocktail-in::after
@@ -32,7 +42,7 @@ html
     content: "";
     background: url(../img/cocktail_icone.jpg);
     background-size: cover;
-    opacity: 0.26;
+    opacity: 0.24;
     top: 0;
     left: 0;
     bottom: 0;
@@ -41,13 +51,22 @@ html
     z-index: -1;
 }
 
-#inner_presentation
+.cocktail-in:hover
 {
+    box-shadow: #000000 1px 1px 6px;
 }
 
-.cocktail-in img
+.titre_cocktail
 {
-    width: 100%;
+    vertical-align:middle;
+    display:inline-block;
+    line-height:normal;
+}
+
+.img_ckt
+{
+    margin: auto;
+    max-width: 75%;
 }
 
 .exige
