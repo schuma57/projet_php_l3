@@ -68,7 +68,7 @@
         </div>
         <br/>
         <div class="form-group">
-            <div class="col-md-offset-2 col-xs-offset-1">
+            <div class="col-xs-12 col-md-offset-2">
                 <button type="submit" name="submit" class="btn btn-primary">
                     <span class="glyphicon glyphicon-ok-sign"></span> Enregister </button>
             </div>
@@ -82,25 +82,14 @@
     <script>
         $("#ville").addClass("hidden");
         $("#adresse").addClass("hidden");
-    </script>
-    <script>
+
+
         $("#motdepasse").focus( function(){
             $("#mesureMot").removeClass("hidden");
         });
 
         $("#postal").blur( function()
         {
-            $.ajax({
-                type: 'GET',
-                url: "http://www.cp-ville.com/cpcom.php",
-                data: "cpcommune=" +$("#postal").val(),
-                dataType: 'json',
-                success: function(data, statut)
-                {
-                    alert("recu " +data +" " +statut);
-                }
-            });
-
             if( $("#ville").hasClass("hidden") )
             {
                 $("#ville").removeClass("hidden");
@@ -116,6 +105,5 @@
                 $("#adresse").focus();
             }
         });
-
     </script>
 {% endblock %}

@@ -4,11 +4,12 @@
 
 {% block block_principal %}
 
-<section class="row">
-
-    <div class="col-xs-12 col-md-12">
-        <h2 class="text-center"> Les cocktails </small><span class="badge">{{ nbCocktail }}</span> </h2>
+    <div class="panel">
+        <h2 class="text-center"><span class="glyphicon glyphicon-glass"></span> Les cocktails
+            <span class="badge">{{ nbCocktail }}</span> </h2>
     </div>
+
+<section class="row">
 
     <div class="col-xs-12 col-md-12"> {#--------- le fil d'ariane -------#}
         <ul class="breadcrumb">
@@ -52,6 +53,7 @@
 
         </div>
 
+        {# les vignettes avec les cocktails #}
         <div class="col-md-9 col-xs-12">
             <section class="row" id="super">
 
@@ -83,8 +85,29 @@
 
 {% block block_scripts %}
     <script>
+        $.expr[":"].contains = $.expr.createPseudo(function( text ) {
+            return function( elem ) {
+                return $(elem).text().toLowerCase().indexOf( text.toLowerCase() ) >= 0;
+            };
+        });
+
         $(document).ready(function() {
             pagination(24,'#super .dedans','.paginator',2);
         });
+
+        /*$(document).ready(function () {
+            $('#recherche').change(function () {
+                var input_content = $.trim($('#recherche').val());
+                if (!input_content)
+                {
+                    $('.dedans').show();
+                }
+                else
+                {
+                    //$(".dedans:contains('" + input_content  + "')").show().hide();
+                    $('.dedans').show().not(':contains(' + input_content  + ')').hide();
+                }
+            });
+        });*/
     </script>
 {% endblock %}

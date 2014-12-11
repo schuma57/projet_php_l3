@@ -8,6 +8,7 @@
     if( !isset($_SESSION['panier']) )
         $_SESSION['panier'] = array();
     require_once("Donnees.inc.php");
+
     //=======================================================================//
     require_once 'lib/Twig/Autoloader.php';
     Twig_Autoloader::register();
@@ -30,6 +31,7 @@
     {
         echo $twig->render('changer_mdp.html.twig',
             array('session' => $_SESSION,
+                'recettes' => $Recettes
             )
         );
     }
@@ -51,27 +53,16 @@
 
                     file_put_contents('models/users.json', json_encode($users));
 
-                    $url = "profil.php";
-                    $message = "
-                        <p>Mot de passe changé avec succès ! Redirection dans <span id=chrono>2</span> secondes</p>
-                        <script>
-                        setTimeout(function(){ document.getElementById('chrono').innerHTML = '1';}, 1000 );
-                        setTimeout(function(){ document.getElementById('chrono').innerHTML = '0';}, 2000 );
-                        </script>";
-
-                    echo $twig->render("message.html.twig",
-                        array(
-                            'message' => $message,
-                            'url'   => $url
-                        )
-                    );
-                    return;
+                    sleep(2);
+                    header("Location: profil.php");
+                    exit();
                 }
             }
         }
 
         echo $twig->render('changer_mdp.html.twig',
             array('session' => $_SESSION,
+                'recettes' => $Recettes,
                 'erreur' => $erreur
             )
         );
@@ -122,7 +113,7 @@
     {
         global $erreur;
 
-        if( strlen($_POST['motdepasse']) >= 3 )
+        if( strlen($_POST['nouveaumdp']) >= 3 )
             return true;
         else
         {

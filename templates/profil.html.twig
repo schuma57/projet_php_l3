@@ -4,9 +4,11 @@
 
 {% block block_principal %}
 
-<section class="row">
-    <h2 class="text-center"><span class="glyphicon glyphicon-user">
+<section>
+    <div class="panel">
+        <h2 class="text-center"><span class="glyphicon glyphicon-user">
             </span> Profil de {{ session.user_courant.pseudo|capitalize }} </h2>
+    </div>
 
     <br/>
     <div class="well col-xs-12 col-md-offset-1 col-md-10">

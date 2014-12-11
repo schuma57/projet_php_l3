@@ -5,7 +5,7 @@
  */
 
     session_start();
-    //include_once("models/user.class.php");
+    require_once("Donnees.inc.php");
 
     //===========================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
@@ -27,5 +27,7 @@
 
 
     echo $twig->render('profil.html.twig',
-        array('session' => $_SESSION)
+        array('session' => $_SESSION,
+            'recettes' => $Recettes
+        )
     );

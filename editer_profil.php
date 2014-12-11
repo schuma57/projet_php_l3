@@ -5,6 +5,7 @@
  */
 
     session_start();
+    require_once("Donnees.inc.php");
     require_once("services/controle_inscription.php");
 
     //===========================================================================//
@@ -28,7 +29,9 @@
     if( !isset($_POST['submit']) )
     {
         echo $twig->render('editer_profil.html.twig',
-            array('session' => $_SESSION)
+            array('session' => $_SESSION,
+                'recettes' => $Recettes
+            )
         );
     }
     else
@@ -62,6 +65,7 @@
 
         echo $twig->render('editer_profil.html.twig',
             array('session' => $_SESSION,
+                'recettes' => $Recettes,
                 'erreur'    => $erreur
             )
         );

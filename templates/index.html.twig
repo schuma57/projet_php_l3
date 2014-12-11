@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.validate.password.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -15,7 +16,15 @@
     {% block block_menu %}
     
     <header class="container">
-        <div class="row">
+        <noscript>
+            <div class="row panel panel-danger">
+                <p class="text-center text-danger">
+                    Votre navigateur ne supporte pas JavaScript !
+                    Une navigation optimale ne pourra être assurée...
+                </p>
+            </div>
+        </noscript>
+        <div id="main_menu" class="row">
             {{ include('menu.html.twig') }}
         </div>
     </header>
@@ -55,11 +64,28 @@
     </div>
     
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/additional-methods.min.js"></script>
     <script type="text/javascript" src="js/pagination.js"></script>
+
+    <script>
+        var liste = [
+            {% for key, re in recettes %}
+            {value : "{{ re.titre }}" , id_link : {{ key }} },
+            {% endfor %}
+        ];
+
+        $('#recherche').autocomplete({
+            source : liste,
+            minLength : 2,
+            select : function(event, ui){
+                location.href = 'recette.php?id=' +ui.item.id_link;
+            }
+        });
+    </script>
 
     {% block block_scripts %}
     {% endblock %}

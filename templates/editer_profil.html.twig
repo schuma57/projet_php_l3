@@ -5,7 +5,9 @@
 {% set user = session.user_courant %}
 
 {% block block_principal %}
-    <h2 class="text-center"> Edition profil {{ user.pseudo|capitalize }} </h2>
+    <div class="panel">
+        <h2 class="text-center"> Edition profil {{ user.pseudo|capitalize }} </h2>
+    </div>
 
     {% block block_erreur %} {{ parent() }} {% endblock %}
     <br/>

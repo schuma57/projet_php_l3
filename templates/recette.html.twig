@@ -9,8 +9,8 @@
         <h2> Recette : {{ item.titre }} </h2>
     </div>
 
-    <section class="row">
-        <div class="col-md-8">
+    <section class="container row">
+        <div class="col-md-8 col-xs-12">
             <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -42,8 +42,8 @@
             <div class="row">
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        <a href="ajouter_favori.php?id={{ id_recette }}">
-                            <span class="glyphicon glyphicon-star-empty"></span> Ajouter aux favoris </a>
+                        <a href="services/ajouter_favori.php?id={{ id_recette }}"> <div data-toggle="modal" href="#infos">
+                            <span class="glyphicon glyphicon-star-empty"></span> Ajouter aux favoris </div></a>
                     </div>
                     <div class="panel-body">
                         {% if imageExiste %}
@@ -56,6 +56,40 @@
                 </div>
             </div>
         </div>
+
+        {# fenetre modale pour patienter avant la redirection #}
+        <div class="modal" id="infos">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h4 class="modal-title">Recette ajoutée aux favoris, patientez...</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
+{% endblock %}
+
+
+{% block block_scripts %}
+    <script>
+        $(".envoi").click(timer(0));
+
+        function timer(n) {
+            $(".progress-bar").css("width", n + "%");
+            if(n < 100) {
+                setTimeout(function() {
+                    timer(n + 10);
+                }, 300);
+            }
+        }
+    </script>
 {% endblock %}

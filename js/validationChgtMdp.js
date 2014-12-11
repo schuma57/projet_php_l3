@@ -21,7 +21,6 @@
 					}
 				},
 				submitHandler: function(form) {
-					alert("Formulaire envoyé");
                     form.submit();
 				},
 				errorElement: "div",

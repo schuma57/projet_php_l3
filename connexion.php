@@ -2,6 +2,7 @@
     session_start();
     if( !isset($_SESSION['panier']) )
         $_SESSION['panier'] = array();
+
     //=====================================================================//
     require_once 'lib/Twig/Autoloader.php' ;
     Twig_Autoloader::register();
