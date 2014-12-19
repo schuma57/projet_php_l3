@@ -13,7 +13,6 @@
         {% block block_erreur %} {{ parent() }} {% endblock %}
         <br/>
 
-
         <form id="form_mdp" method="post" class="form-horizontal" role="form">
             <div id="erreurs"></div>
 
@@ -28,6 +27,7 @@
                 <input id="mdpactuel" name="mdpactuel" type="password" class="col-xs-12 col-sm-6"
                        placeholder="Mot de passe actuel" />
             </div>
+
 			<div class="form-group">
 				<hr class="col-xs-12 col-sm-offset-2 col-sm-6"/>
 			</div>
@@ -59,8 +59,8 @@
                 </div>
             </div>
         </form> <!-- fin du formulaire -->
-    </section>
 
+    </section>
 {% endblock %}
 
 

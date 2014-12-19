@@ -42,6 +42,13 @@
             $erreur[] = "Mot de passe non renseigné.";
     }
 
+    function testerEquivalence($mdp, $mdpConf)
+    {
+        global $erreur;
+        if($mdp != $mdpConf)
+            $erreur[] = "Confirmez votre mot de passe avec la même valeur.";
+    }
+
 
     function valideNom($nom)
     {

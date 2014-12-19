@@ -70,6 +70,7 @@
         global $erreur;
         validePseudo( trim($_POST['pseudo']));
         valideMdp( trim($_POST['motdepasse']));
+        testerEquivalence( trim($_POST['motdepasse']), trim($_POST['confirmationMdp']));
         valideNom( trim($_POST['nom']));
         validePrenom( trim($_POST['prenom']));
         valideEmail( trim($_POST['email']));

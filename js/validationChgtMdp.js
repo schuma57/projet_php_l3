@@ -3,6 +3,7 @@
 				// Creation de nos regles pour la validation du formulaire "form_inscription"
 				rules: {
 					nouveaumdp:{
+                        required:true,
                         passwordCustom:"#pseudo"
 					},
 					confNouveau:{
@@ -12,12 +13,10 @@
 				// Ajout des messages personnalisés. On aurait pu importer les fichiers type localisation fr
 				messages:{
 					nouveaumdp:{
-						minlength:"Pas assez long"
-						//required:"Veuillez préciser le nouveau mot de passe"
+						required:"Veuillez préciser le nouveau mot de passe"
 					},
 					confNouveau:{
-						minlength:"Pas assez long"
-						//equalTo: "Les deux mots de passe doivent être identiques"
+						equalTo: "Les deux mots de passe doivent être identiques"
 					}
 				},
 				submitHandler: function(form) {
@@ -73,10 +72,12 @@
 					digit = DIGIT.test(password),
 					digits = DIGITS.test(password),
 					special = SPECIAL.test(password),
-					//Ajout test personnalisé. On ne prend pas en compte la casse dans ce test (c'est ce que l'on veut dans la consigne)
+					//Ajout test personnalisé. On ne prend pas en compte la casse dans ce test
+					// (c'est ce que l'on veut dans la consigne)
 					lettres = LETTRES.test(password);
 				
-				if (lettres && digit && password.length > 6 || lettres && digits && password.length > 6 || special && password.length > 6 )
+				if (lettres && digit && password.length > 6
+                        || lettres && digits && password.length > 6 || special && password.length > 6 )
 					return rating(4, "strong");
 				if (lettres && password.length > 6 || digits && password.length > 6 )
 					return rating(3, "good");

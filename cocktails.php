@@ -4,6 +4,7 @@
         $_SESSION['panier'] = array();
     require_once("Donnees.inc.php");
 
+    error_reporting (1);
     //=======================================================================//
     require_once 'lib/Twig/Autoloader.php';
     Twig_Autoloader::register();
@@ -32,6 +33,7 @@
 
     if( isset($_POST['submit']) )
     {
+        $label = 'sous-categorie';
         unset($listeRecettes);
 
         $max=1;
@@ -45,7 +47,7 @@
 
         $listeAChercher[] = $_POST['niveau'.$max];
 
-        foreach( $Hierarchie[$_POST['niveau'.$max]['sous-categorie']] as $valeur)
+        foreach( $Hierarchie[$_POST['niveau'.$max][$label]] as $valeur)
         {
             $listeAChercher[] = $valeur;
         }
@@ -54,9 +56,12 @@
         {
             foreach($listeAChercher as $aliment)
             {
-                foreach( $Hierarchie[$aliment]['sous-categorie'] as $valeur)
+                if( is_array($Hierarchie[$aliment][$label]) )
                 {
-                    $listeAChercher[] = $valeur;
+                    foreach( $Hierarchie[$aliment][$label] as $valeur)
+                    {
+                        $listeAChercher[] = $valeur;
+                    }
                 }
             }
 

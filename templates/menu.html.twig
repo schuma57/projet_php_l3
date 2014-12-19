@@ -77,6 +77,16 @@
                             <span class="glyphicon glyphicon-log-out"></span> Déconnexion </a> </li>
                 </ul>
             </noscript>
+        {% else %}
+            <noscript>
+                <div class="visible-xs">
+                    <div class="navbar-text">
+                        <a href="panier.php">Mes favoris</a>
+                        <a href="connexion.php" class="col-xs-offset-1">
+                            <span class="glyphicon glyphicon-log-in"></span> Connexion </a>
+                    </div>
+                </div>
+            </noscript>
         {% endif %}
 
     </div> <!-- /.container-fluid -->

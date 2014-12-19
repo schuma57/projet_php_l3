@@ -14,7 +14,7 @@
                     return true;
             }, "Date invalide");
 				
-				var validator = jQuery("#form_inscription").validate({
+				validator = jQuery("#form_inscription").validate({
 				//Creation de nos regles pour la validation du formulaire "form_inscription"
 				rules: {
 					pseudo:{
@@ -23,8 +23,11 @@
 					},
 					motdepasse:{
                         required:true,
-						password:"#pseudo"
+						passwordInscription:"#pseudo"
 					},
+                    confirmationMdp:{
+                        equalTo:"#motdepasse"
+                    },
 					nom:{
 						string:true
 					},
@@ -64,6 +67,9 @@
 						required:"Veuillez préciser votre mot de passe",
 						minlength: "Votre mot de passe doit être composé d'au moins 2 caractères"
 					},
+                    confirmationMdp:{
+                        equalTo:"Les deux mots de passe doivent être identiques"
+                    },
 					nom:{
 						required:"Veuillez préciser votre nom",
 						minlength: "Votre nom doit être composé d'au moins 2 caractères"
@@ -171,7 +177,7 @@
 				"strong": "Robuste"
 			}
 			
-			$.validator.addMethod("password", function(value, element, usernameField) {
+			$.validator.addMethod("passwordInscription", function(value, element, usernameField) {
 				var password = element.value,
 					username = $(typeof usernameField != "boolean" ? usernameField : []);
 				var rating = $.validator.passwordRating(password, username.val());

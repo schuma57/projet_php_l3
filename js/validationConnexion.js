@@ -17,7 +17,7 @@
 						minlength: "Votre pseudonyme doit être composé d'au moins 2 caractères"
 					},
 					motdepasse:{
-						required:"Veuillez préciser votre mot de passe",
+						required:"Veuillez préciser votre mot de passe"
 					}
 				},
 				submitHandler: function(form) {
